@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b23l7q26roier"]
+
+[ext_resource type="Texture2D" uid="uid://cgujgl6x1phr" path="res://assets/items/resources/hoja.png" id="1_d1u0x"]
+[ext_resource type="Script" uid="uid://b6gy1caig17ff" path="res://scripts/resources/items/ItemData.gd" id="2_0ey6i"]
+
+[resource]
+script = ExtResource("2_0ey6i")
+name = "Hoja"
+icon = ExtResource("1_d1u0x")
+description = "Pequeña hoja de un árbol"
+type = 3
+metadata/_custom_type_script = "uid://b6gy1caig17ff"
