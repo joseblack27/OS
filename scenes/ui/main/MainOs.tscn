@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfmy15nixg3h3"]
+[gd_scene load_steps=11 format=3 uid="uid://dfmy15nixg3h3"]
 
 [ext_resource type="Script" uid="uid://q3ja4na5cowa" path="res://scenes/ui/main/MainOs.gd" id="1_8r8lf"]
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="2_n01vk"]
 [ext_resource type="PackedScene" uid="uid://du7udotvweuoo" path="res://scenes/ui/panels/dashboard/DashboardPanel.tscn" id="3_ded1p"]
+[ext_resource type="Texture2D" uid="uid://buk3hvhc2patk" path="res://assets/icons/tabs/tab_11.png" id="3_jvhi8"]
 [ext_resource type="PackedScene" uid="uid://cu7ybfgi0bopk" path="res://scenes/ui/panels/messages/MessagesPanel.tscn" id="4_07ygr"]
+[ext_resource type="Texture2D" uid="uid://oude0u3611f8" path="res://assets/icons/tabs/tab_1.png" id="4_r3pxi"]
+[ext_resource type="Texture2D" uid="uid://bqf4m11k62ytb" path="res://assets/icons/tabs/tab_4.png" id="5_rxrgu"]
 [ext_resource type="PackedScene" uid="uid://bxthynfs5udhq" path="res://scenes/ui/panels/missions/MissionsPanel.tscn" id="5_yyxjp"]
+[ext_resource type="Texture2D" uid="uid://n66xoqg60m4" path="res://assets/icons/tabs/tab_10.png" id="6_8rkdy"]
 [ext_resource type="PackedScene" uid="uid://6ysewcuhdy8u" path="res://scenes/ui/panels/inventory/InventoryPanel.tscn" id="6_gesyk"]
 
 [node name="MainOS" type="Control"]
+custom_minimum_size = Vector2(720, 360)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,16 +39,72 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = -156.0
 offset_top = -32.0
-offset_right = 32.0
+offset_right = -92.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "OS"
+icon = ExtResource("3_jvhi8")
+icon_alignment = 1
+
+[node name="MessageButton" type="Button" parent="ColorRect2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -32.0
+offset_right = -28.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("4_r3pxi")
+icon_alignment = 1
+
+[node name="MissionsButton" type="Button" parent="ColorRect2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 36.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("5_rxrgu")
+icon_alignment = 1
+
+[node name="InventoryButton" type="Button" parent="ColorRect2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -32.0
+offset_right = 100.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("6_8rkdy")
+icon_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +160,7 @@ theme_override_font_sizes/font_size = 15
 text = "x"
 
 [node name="Panel" type="Panel" parent="ColorRect/Margin/VBox"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="TopBar" type="HBoxContainer" parent="ColorRect/Margin/VBox/Panel"]

@@ -22,6 +22,10 @@ window/size/viewport_height=400
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

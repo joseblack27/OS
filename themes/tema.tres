@@ -102,6 +102,7 @@ corner_detail = 2
 default_font = ExtResource("1_asgch")
 default_font_size = 12
 Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/fonts/font = ExtResource("1_asgch")
 Button/styles/disabled = SubResource("StyleBoxFlat_7klen")

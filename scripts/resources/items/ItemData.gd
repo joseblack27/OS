@@ -14,6 +14,7 @@ class_name ItemData
 
 @export var can_use: bool = false
 @export var can_equip: bool = false
+@export var can_drop: bool = true
 
 var type_descripcion: String
 
