@@ -8,6 +8,6 @@ script = ExtResource("2_cm2ul")
 name = "Pildora de vida"
 icon = ExtResource("1_i6sch")
 description = "Aumenta la vida temporalmente"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

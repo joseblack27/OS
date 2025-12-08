@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://6ysewcuhdy8u"]
+[gd_scene load_steps=22 format=3 uid="uid://6ysewcuhdy8u"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_tikhs"]
 [ext_resource type="Texture2D" uid="uid://cdm8uqar1sxjr" path="res://icon.svg" id="2_2qy46"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://uxtrbxubaypd" path="res://scripts/resources/items/resources/ticket.tres" id="16_g2q0i"]
 [ext_resource type="Resource" uid="uid://cnvn4opgjvvvt" path="res://scripts/resources/items/resources/ticket_dsct_10_pcto.tres" id="17_x6y5c"]
 [ext_resource type="Resource" uid="uid://saw7o7sy88t3" path="res://scripts/resources/items/consumables/zanahoria.tres" id="18_4f4rx"]
+[ext_resource type="Script" uid="uid://bo4a4iwec5n7o" path="res://scenes/ui/panels/inventory/ButtonFilter.gd" id="19_tf88s"]
 
 [node name="InventoryPanel" type="Control"]
 layout_mode = 3
@@ -79,29 +80,41 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="AllButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs"]
+[node name="AllButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Todos"
+script = ExtResource("19_tf88s")
+filter_type = 1
+flow_items = NodePath("../../FlowItems")
 
-[node name="EquipmentsButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs"]
+[node name="EquipmentsButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Equipos"
+script = ExtResource("19_tf88s")
+filter_type = 3
+flow_items = NodePath("../../FlowItems")
 
-[node name="ConsumablesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs"]
+[node name="ConsumablesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Consumibles"
+script = ExtResource("19_tf88s")
+filter_type = 2
+flow_items = NodePath("../../FlowItems")
 
-[node name="ResourcesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs"]
+[node name="ResourcesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Recursos"
+script = ExtResource("19_tf88s")
+filter_type = 4
+flow_items = NodePath("../../FlowItems")
 
 [node name="GridContainer" type="GridContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
 visible = false
@@ -193,22 +206,35 @@ text = "Godot Engine es un motor de videojuegos gratuito y de código abierto qu
 
 [node name="HSeparator4" type="HSeparator" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
 layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ActionButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
+custom_minimum_size = Vector2(78, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Acción"
 
 [node name="ButtonBar" type="HBoxContainer" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
+visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
 
 [node name="UseButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Usar"
 
 [node name="EquipButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Equipar"
 
 [node name="DropButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Soltar"
@@ -220,3 +246,49 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 12
 text = "x"
+
+[node name="MainActionPanel" type="PanelContainer" parent="Margin/HBox/DetailPanel"]
+visible = false
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -76.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Margin/HBox/DetailPanel/MainActionPanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/DetailPanel/MainActionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="UseButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Usar"
+
+[node name="EquipButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Equipar"
+
+[node name="DropButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Soltar"

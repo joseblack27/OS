@@ -6,6 +6,7 @@ class_name FlowItems
 # Espaciado entre elementos (coincidir con Separation)
 @export var spacing: int = 8
 
+
 func _ready():
 	resized.connect(_update_layout)
 	_update_layout()
@@ -27,3 +28,10 @@ func _update_layout():
 	for child in get_children():
 		if child is Control:
 			child.custom_minimum_size = Vector2(cell_size, cell_size)
+
+func filter_items(filter_type: Enums.type_item_inventory):
+	for item: ItemSlot in get_children():
+		if filter_type == Enums.type_item_inventory.ALL:
+			item.visible = true
+		else:
+			item.visible = item.item_data.type == filter_type

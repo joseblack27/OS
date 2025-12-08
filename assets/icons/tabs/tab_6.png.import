@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgujgl6x1phr"
-path="res://.godot/imported/hoja.png-6f4fcef505bbf293f8479aea963a18c5.ctex"
+uid="uid://dd5r743sdao5r"
+path="res://.godot/imported/tab_6.png-fb6cf2ed3acd7552463a3c9fb1b8d4f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/resources/hoja.png"
-dest_files=["res://.godot/imported/hoja.png-6f4fcef505bbf293f8479aea963a18c5.ctex"]
+source_file="res://assets/icons/tabs/tab_6.png"
+dest_files=["res://.godot/imported/tab_6.png-fb6cf2ed3acd7552463a3c9fb1b8d4f8.ctex"]
 
 [params]
 

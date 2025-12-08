@@ -8,6 +8,6 @@ script = ExtResource("2_bjctv")
 name = "Adrenalina"
 icon = ExtResource("1_0od5u")
 description = "Aumenta la velocidad de movimiento temporalmente"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

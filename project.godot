@@ -15,12 +15,25 @@ run/main_scene="uid://di65fp1med2l6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Enums="*res://scripts/autoloads/Enums.gd"
+
 [display]
 
 window/size/viewport_width=840
 window/size/viewport_height=400
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor]
+
+movie_writer/video_quality=1.0
+movie_writer/movie_file="D:/Proyectos/Godot/OS/video/demo.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg")
 
 [rendering]
 

@@ -9,6 +9,6 @@ name = "Desfibrilador"
 icon = ExtResource("1_dty6h")
 quantity = 2
 description = "Revive al jugador mismo o a otro jugador"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

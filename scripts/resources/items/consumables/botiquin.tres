@@ -8,6 +8,6 @@ script = ExtResource("2_agltq")
 name = "Botiquín"
 icon = ExtResource("1_0ugtu")
 description = "Recupera una gran cantidad de vida"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

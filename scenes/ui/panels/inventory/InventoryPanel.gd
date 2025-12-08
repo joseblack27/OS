@@ -21,17 +21,35 @@ class_name InventoryPanel
 @onready var use_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
 @onready var equip_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
 @onready var drop_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
+@onready var action_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ActionButton
+
+@onready var main_action_panel: PanelContainer = $Margin/HBox/DetailPanel/MainActionPanel
+@onready var use_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/UseButton
+@onready var equip_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/EquipButton
+@onready var drop_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/DropButton
+
+@onready var all_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/AllButton
+@onready var equipments_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/EquipmentsButton
+@onready var consumables_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/ConsumablesButton
+@onready var resources_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/ResourcesButton
 
 func _ready():
 	#_populate_grid()
 	#flow.resized.connect(_on_flow)
-	flow.resized.connect(_update_spacing)
+	flow.resized.connect(_update_spacing_3)
 	_populate_flow()
 	_clear_details()
 	#resized.connect(_update_spacing)
 	close_button.pressed.connect(_on_close_button)
-	_update_spacing()
+	action_button.pressed.connect(_on_action_button)
+	#_update_spacing()
+	_update_spacing_3()
 	#_on_flow()
+	
+	#main_os.main_button_close.connect(_on_close_button)
+	var main_os = get_tree().get_root().find_child("MainOS", true, false)
+	if main_os:
+		main_os.main_button_close.connect(_on_close_button)
 
 func _populate_flow():
 	for child in grid.get_children():
@@ -45,6 +63,7 @@ func _populate_flow():
 
 func _on_close_button():
 	detail_panel_margin.hide()
+	main_action_panel.hide()
 
 func _update_spacing_2():
 	var container_width: float = flow.size.x
@@ -112,6 +131,7 @@ func _clear_grid(_grid):
 
 func _on_slot_clicked(item_data: ItemData):
 	_update_details(item_data)
+	main_action_panel.hide()
 	detail_panel_margin.show()
 
 func _clear_details():
@@ -135,7 +155,54 @@ func _update_details(item: ItemData):
 	# Habilitar según tipo
 	use_button.disabled = not item.can_use
 	equip_button.disabled = not item.can_equip
-	drop_button.disabled = false
+	drop_button.disabled = not item.can_drop
+	
+	use_action_button.visible = item.can_use
+	equip_action_button.visible = item.can_equip
+	drop_action_button.visible = item.can_drop
 
 func _on_flow():
 	_update_spacing_2()
+
+func _update_spacing_3():
+	var container_width := flow.size.x
+	if container_width <= 0:
+		return
+
+	var slot_w := slot_size.x
+
+	# cuántos caben por fila
+	var max_per_row = max(1, floori(container_width / (slot_w + min_spacing)))
+
+	# ancho usado por items
+	var used_width = max_per_row * slot_w
+
+	# espacio libre entre items
+	var free_space = container_width - used_width
+
+	# spacing ideal
+	var spacing := floori(free_space / (max_per_row + 1))
+
+	# límite para que no se desarme la grilla
+	spacing = clamp(spacing, min_spacing, 32)
+
+	flow.add_theme_constant_override("h_separation", spacing)
+	flow.add_theme_constant_override("v_separation", min_spacing)
+
+func _on_action_button():
+	main_action_panel.visible = !main_action_panel.visible
+
+func set_active_filter_button(button: Button):
+	# Primero desactivo todos
+	all_filter_button.button_pressed = false
+	all_filter_button.disabled = false
+	equipments_filter_button.button_pressed = false
+	equipments_filter_button.disabled = false
+	consumables_filter_button.button_pressed = false
+	consumables_filter_button.disabled = false
+	resources_filter_button.button_pressed = false
+	resources_filter_button.disabled = false
+
+	# Activo solo el correcto
+	button.button_pressed = true
+	button.disabled = true

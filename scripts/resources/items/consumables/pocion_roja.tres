@@ -8,6 +8,6 @@ script = ExtResource("2_ebmht")
 name = "Poción roja"
 icon = ExtResource("1_18ysl")
 description = "Recupera una cantidad de vida"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

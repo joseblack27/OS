@@ -8,5 +8,5 @@ script = ExtResource("2_hjt2j")
 name = "Bateria grande"
 icon = ExtResource("1_8sp6l")
 description = "Objeto que provee una gran cantidad de energía"
-type = 3
+type = 4
 metadata/_custom_type_script = "uid://b6gy1caig17ff"

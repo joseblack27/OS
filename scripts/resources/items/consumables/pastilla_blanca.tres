@@ -8,6 +8,6 @@ script = ExtResource("2_6a5qo")
 name = "Pastilla bienestar"
 icon = ExtResource("1_drkou")
 description = "Elimina los efectos de estados"
-type = 1
+type = 2
 can_use = true
 metadata/_custom_type_script = "uid://b6gy1caig17ff"
