@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://ddlr8menttf7k"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://ddlr8menttf7k"]
 
 [ext_resource type="FontFile" uid="uid://53dduvrn2yrw" path="res://assets/fonts/jet brain mono/JetBrainsMono-Light.ttf" id="1_asgch"]
 
@@ -52,6 +52,9 @@ corner_detail = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t0xh"]
 bg_color = Color(1, 1, 1, 0.6666667)
 corner_detail = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_asgch"]
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ep6a"]
 bg_color = Color(0, 0, 0, 1)
@@ -113,6 +116,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_nqidi")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_gx7rj")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0wyfc")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8t0xh")
+HSeparator/styles/separator = SubResource("StyleBoxLine_asgch")
 Panel/styles/panel = SubResource("StyleBoxFlat_5ep6a")
 TabContainer/colors/font_unselected_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 TabContainer/font_sizes/font_size = 14

@@ -7,36 +7,49 @@ class_name InventoryPanel
 @export var min_spacing := 4                 # mínimo espacio permitido
 
 @onready var grid: GridContainer = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/GridContainer
-@onready var flow: FlowItems = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FlowItems
+@onready var flow: FlowItems = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/MarginContainer/FlowItems
 
-# Detalle
-@onready var item_name := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ItemName
-@onready var item_icon := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ItemIcon
-@onready var type_value := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid/TypeValue
-@onready var qty_value := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid/QtyValue
-@onready var description_text := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/DescriptionText
-@onready var close_button := $Margin/HBox/DetailPanel/MarginContainer/CloseButton
-@onready var detail_panel_margin := $Margin/HBox/DetailPanel/MarginContainer
+# Panel de detalle
+@onready var item_name := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ItemName
+@onready var item_icon := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ItemIcon
+@onready var type_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid/TypeValue
+@onready var qty_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid/QtyValue
+@onready var description_text := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/DescriptionText
+@onready var close_button := $Margin/HBox/Control/DetailPanel/CloseButton
+@onready var detail_panel_margin := $Margin/HBox/Control/DetailPanel
 
-@onready var use_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
-@onready var equip_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
-@onready var drop_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
-@onready var action_button := $Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ActionButton
+@onready var use_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
+@onready var equip_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
+@onready var drop_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
+@onready var action_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ActionButton
 
-@onready var main_action_panel: PanelContainer = $Margin/HBox/DetailPanel/MainActionPanel
-@onready var use_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/UseButton
-@onready var equip_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/EquipButton
-@onready var drop_action_button := $Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/DropButton
+@onready var main_action_panel: PanelContainer = $Margin/HBox/Control/DetailPanel/MainActionPanel
+@onready var use_action_button := $Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/UseButton
+@onready var equip_action_button := $Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/EquipButton
+@onready var drop_action_button := $Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer/DropButton
 
 @onready var all_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/AllButton
 @onready var equipments_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/EquipmentsButton
 @onready var consumables_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/ConsumablesButton
 @onready var resources_filter_button: Button = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs/ResourcesButton
 
+# Panel de equipamiento
+@onready var equipment_panel: Panel = $Margin/HBox/Control/EquipmentPanel
+@onready var equip_slot_weapon: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1/EquipSlotWeapon
+@onready var equip_slot_shield: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1/EquipSlotShield
+@onready var equip_slot_helmet: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2/EquipSlotHelmet
+@onready var equip_slot_neck: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2/EquipSlotNeck
+@onready var equip_slot_body : EquipoSlot= $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3/EquipSlotBody
+@onready var equip_slot_ring_1: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3/EquipSlotRing1
+@onready var equip_slot_pant: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4/EquipSlotPant
+@onready var equip_slot_ring_2: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4/EquipSlotRing2
+@onready var equip_slot_boots: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBoots
+@onready var equip_slot_belt: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBelt
+
 func _ready():
 	#_populate_grid()
 	#flow.resized.connect(_on_flow)
-	flow.resized.connect(_update_spacing_3)
+	#flow.resized.connect(_update_spacing_3)
 	_populate_flow()
 	_clear_details()
 	#resized.connect(_update_spacing)
@@ -60,6 +73,17 @@ func _populate_flow():
 		slot.item_data = data
 		slot.slot_clicked.connect(_on_slot_clicked)
 		flow.add_child(slot)
+	
+	equip_slot_weapon.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_shield.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_helmet.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_neck.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_body.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_ring_1.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_pant.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_ring_2.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_boots.slot_clicked.connect(_on_slot_clicked)
+	equip_slot_belt.slot_clicked.connect(_on_slot_clicked)
 
 func _on_close_button():
 	detail_panel_margin.hide()
@@ -130,9 +154,10 @@ func _clear_grid(_grid):
 		child.queue_free()
 
 func _on_slot_clicked(item_data: ItemData):
-	_update_details(item_data)
-	main_action_panel.hide()
-	detail_panel_margin.show()
+	if item_data:
+		_update_details(item_data)
+		main_action_panel.hide()
+		detail_panel_margin.show()
 
 func _clear_details():
 	item_name.text = "No item"
@@ -187,7 +212,7 @@ func _update_spacing_3():
 	spacing = clamp(spacing, min_spacing, 32)
 
 	flow.add_theme_constant_override("h_separation", spacing)
-	flow.add_theme_constant_override("v_separation", min_spacing)
+	flow.add_theme_constant_override("v_separation", spacing)
 
 func _on_action_button():
 	main_action_panel.visible = !main_action_panel.visible

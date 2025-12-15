@@ -9,3 +9,16 @@ enum type_item_inventory {
 	QUEST,
 	WEAPON
 }
+
+enum type_items_inventory_equippables {
+	NONE,
+	HELMET,
+	BODY,
+	PANT,
+	BOOTS,
+	NECK,
+	RING,
+	BELT,
+	WEAPON,
+	SHIELD
+}

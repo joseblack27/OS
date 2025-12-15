@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://6ysewcuhdy8u"]
+[gd_scene load_steps=38 format=3 uid="uid://6ysewcuhdy8u"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_tikhs"]
 [ext_resource type="Texture2D" uid="uid://cdm8uqar1sxjr" path="res://icon.svg" id="2_2qy46"]
@@ -20,7 +20,23 @@
 [ext_resource type="Resource" uid="uid://uxtrbxubaypd" path="res://scripts/resources/items/resources/ticket.tres" id="16_g2q0i"]
 [ext_resource type="Resource" uid="uid://cnvn4opgjvvvt" path="res://scripts/resources/items/resources/ticket_dsct_10_pcto.tres" id="17_x6y5c"]
 [ext_resource type="Resource" uid="uid://saw7o7sy88t3" path="res://scripts/resources/items/consumables/zanahoria.tres" id="18_4f4rx"]
+[ext_resource type="Resource" uid="uid://c55couab68dla" path="res://scripts/resources/items/equippables/espada_luz_azul.tres" id="19_1tche"]
 [ext_resource type="Script" uid="uid://bo4a4iwec5n7o" path="res://scenes/ui/panels/inventory/ButtonFilter.gd" id="19_tf88s"]
+[ext_resource type="Resource" uid="uid://dljwusuionxbg" path="res://scripts/resources/items/equippables/casco_caballero_gris.tres" id="20_7e6tm"]
+[ext_resource type="Resource" uid="uid://bw6odx3kp6is1" path="res://scripts/resources/items/equippables/coraza_caballero_gris.tres" id="21_kuybn"]
+[ext_resource type="PackedScene" uid="uid://c51diq6hqeah1" path="res://scenes/ui/panels/inventory/EquipSlot.tscn" id="22_c47ir"]
+[ext_resource type="Resource" uid="uid://b4sthi81vxcf2" path="res://scripts/resources/items/equippables/quijote_caballero_gris.tres" id="22_dmwk7"]
+[ext_resource type="Resource" uid="uid://c4qnhswodm41n" path="res://scripts/resources/items/equippables/botas_caballero_gris.tres" id="23_3wc4y"]
+[ext_resource type="Texture2D" uid="uid://b3uvsh07edb7c" path="res://assets/icons/slots/slot_8.png" id="23_8tsm6"]
+[ext_resource type="Texture2D" uid="uid://c7dml7cnfiigl" path="res://assets/icons/slots/slot_7.png" id="24_1tche"]
+[ext_resource type="Resource" uid="uid://csf1xk7k0mq4q" path="res://scripts/resources/items/equippables/escudo_caballero_noble.tres" id="24_kuybn"]
+[ext_resource type="Texture2D" uid="uid://ddby3umovr8vp" path="res://assets/icons/slots/slot_0.png" id="25_x5xd4"]
+[ext_resource type="Texture2D" uid="uid://bkl7jerunoya" path="res://assets/icons/slots/slot_4.png" id="26_hshqp"]
+[ext_resource type="Texture2D" uid="uid://eq5orn555h1d" path="res://assets/icons/slots/slot_1.png" id="27_s7e8m"]
+[ext_resource type="Texture2D" uid="uid://dxfglusqjwhcr" path="res://assets/icons/slots/slot_5.png" id="28_7e6tm"]
+[ext_resource type="Texture2D" uid="uid://bedaabet7ahyt" path="res://assets/icons/slots/slot_2.png" id="29_kuybn"]
+[ext_resource type="Texture2D" uid="uid://b40ww05yttmik" path="res://assets/icons/slots/slot_3.png" id="30_dmwk7"]
+[ext_resource type="Texture2D" uid="uid://ddyia4fu53xg2" path="res://assets/icons/slots/slot_6.png" id="31_3wc4y"]
 
 [node name="InventoryPanel" type="Control"]
 layout_mode = 3
@@ -32,7 +48,7 @@ grow_vertical = 2
 theme = ExtResource("1_tikhs")
 script = ExtResource("2_js0jc")
 slot_scene = ExtResource("3_cdap4")
-items = Array[ExtResource("4_2dtve")]([ExtResource("6_kk5td"), ExtResource("6_a406a"), ExtResource("7_tf88s"), ExtResource("8_c47ir"), ExtResource("7_lyq21"), ExtResource("8_qtex0"), ExtResource("11_ytosb"), ExtResource("9_oe81b"), ExtResource("10_gejl0"), ExtResource("11_50os3"), ExtResource("13_tf88s"), ExtResource("16_g2q0i"), ExtResource("17_x6y5c"), ExtResource("18_4f4rx")])
+items = Array[ExtResource("4_2dtve")]([ExtResource("6_kk5td"), ExtResource("6_a406a"), ExtResource("7_tf88s"), ExtResource("8_c47ir"), ExtResource("7_lyq21"), ExtResource("8_qtex0"), ExtResource("11_ytosb"), ExtResource("9_oe81b"), ExtResource("10_gejl0"), ExtResource("11_50os3"), ExtResource("13_tf88s"), ExtResource("16_g2q0i"), ExtResource("17_x6y5c"), ExtResource("18_4f4rx"), ExtResource("19_1tche"), ExtResource("20_7e6tm"), ExtResource("21_kuybn"), ExtResource("22_dmwk7"), ExtResource("23_3wc4y"), ExtResource("24_kuybn")])
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -61,10 +77,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="ItemsVBox" type="VBoxContainer" parent="Margin/HBox/ItemsPanel/MarginContainer"]
 layout_mode = 2
@@ -76,7 +88,7 @@ theme_override_font_sizes/font_size = 20
 text = "Inventario"
 
 [node name="FilterTabs" type="HBoxContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -87,7 +99,7 @@ theme_override_font_sizes/font_size = 10
 text = "Todos"
 script = ExtResource("19_tf88s")
 filter_type = 1
-flow_items = NodePath("../../FlowItems")
+flow_items = NodePath("../../MarginContainer/FlowItems")
 
 [node name="EquipmentsButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
@@ -96,7 +108,7 @@ theme_override_font_sizes/font_size = 10
 text = "Equipos"
 script = ExtResource("19_tf88s")
 filter_type = 3
-flow_items = NodePath("../../FlowItems")
+flow_items = NodePath("../../MarginContainer/FlowItems")
 
 [node name="ConsumablesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
@@ -105,7 +117,7 @@ theme_override_font_sizes/font_size = 10
 text = "Consumibles"
 script = ExtResource("19_tf88s")
 filter_type = 2
-flow_items = NodePath("../../FlowItems")
+flow_items = NodePath("../../MarginContainer/FlowItems")
 
 [node name="ResourcesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
 layout_mode = 2
@@ -114,7 +126,7 @@ theme_override_font_sizes/font_size = 10
 text = "Recursos"
 script = ExtResource("19_tf88s")
 filter_type = 4
-flow_items = NodePath("../../FlowItems")
+flow_items = NodePath("../../MarginContainer/FlowItems")
 
 [node name="GridContainer" type="GridContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
 visible = false
@@ -122,132 +134,128 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 5
 
-[node name="FlowItems" type="FlowContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="FlowItems" type="FlowContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 script = ExtResource("13_kk5td")
 
-[node name="DetailPanel" type="Panel" parent="Margin/HBox"]
-custom_minimum_size = Vector2(250, 0)
+[node name="Control" type="Control" parent="Margin/HBox"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/DetailPanel"]
-visible = false
+[node name="EquipmentPanel" type="Panel" parent="Margin/HBox/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
 
-[node name="DetailVBox" type="VBoxContainer" parent="Margin/HBox/DetailPanel/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/Control/EquipmentPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="EquipmentVBox" type="VBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 4
+alignment = 1
 
-[node name="ItemName" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Godot Engine"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-
-[node name="ItemIcon" type="TextureRect" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-texture = ExtResource("2_2qy46")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="HSeparator2" type="HSeparator" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-
-[node name="InfoGrid" type="GridContainer" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-columns = 2
-
-[node name="TypeLabel" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
-layout_mode = 2
-text = "Tipo:"
-
-[node name="TypeValue" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Recurso"
-
-[node name="QtyLabel" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
-layout_mode = 2
-text = "Cantidad:"
-
-[node name="QtyValue" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "1"
-
-[node name="HSeparator3" type="HSeparator" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-
-[node name="DescriptionLabel" type="Label" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-layout_mode = 2
-text = "Descripción:"
-
-[node name="DescriptionText" type="RichTextLabel" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
+[node name="HBoxContainer1" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Godot Engine es un motor de videojuegos gratuito y de código abierto que permite desarrollar juegos en 2D y 3D de forma intuitiva y eficiente. Fue creado por Juan Linietsky y Ariel Manzur, y liberado públicamente el 14 de enero de 2014 bajo licencia MIT"
+theme_override_constants/separation = 26
+alignment = 1
 
-[node name="HSeparator4" type="HSeparator" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
+[node name="EquipSlotWeapon" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1" instance=ExtResource("22_c47ir")]
 layout_mode = 2
-theme_override_constants/separation = 0
+icon = ExtResource("23_8tsm6")
+type_equippable = 8
 
-[node name="ActionButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-custom_minimum_size = Vector2(78, 32)
+[node name="EquipSlotShield" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1" instance=ExtResource("22_c47ir")]
 layout_mode = 2
-size_flags_horizontal = 8
-text = "Acción"
+icon = ExtResource("24_1tche")
+type_equippable = 9
 
-[node name="ButtonBar" type="HBoxContainer" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox"]
-visible = false
-custom_minimum_size = Vector2(0, 30)
+[node name="HBoxContainer2" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+alignment = 1
 
-[node name="UseButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
+[node name="EquipSlotHelmet" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2" instance=ExtResource("22_c47ir")]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Usar"
+icon = ExtResource("25_x5xd4")
+type_equippable = 1
 
-[node name="EquipButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
+[node name="EquipSlotNeck" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2" instance=ExtResource("22_c47ir")]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Equipar"
+icon = ExtResource("26_hshqp")
+type_equippable = 5
 
-[node name="DropButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
+[node name="HBoxContainer3" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Soltar"
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+alignment = 1
 
-[node name="CloseButton" type="Button" parent="Margin/HBox/DetailPanel/MarginContainer"]
-custom_minimum_size = Vector2(20, 20)
+[node name="EquipSlotBody" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3" instance=ExtResource("22_c47ir")]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 12
-text = "x"
+icon = ExtResource("27_s7e8m")
+type_equippable = 2
 
-[node name="MainActionPanel" type="PanelContainer" parent="Margin/HBox/DetailPanel"]
+[node name="EquipSlotRing1" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3" instance=ExtResource("22_c47ir")]
+layout_mode = 2
+icon = ExtResource("28_7e6tm")
+type_equippable = 6
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="EquipSlotPant" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4" instance=ExtResource("22_c47ir")]
+layout_mode = 2
+icon = ExtResource("29_kuybn")
+type_equippable = 3
+
+[node name="EquipSlotRing2" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4" instance=ExtResource("22_c47ir")]
+layout_mode = 2
+icon = ExtResource("28_7e6tm")
+type_equippable = 6
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="EquipSlotBoots" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5" instance=ExtResource("22_c47ir")]
+layout_mode = 2
+icon = ExtResource("30_dmwk7")
+type_equippable = 4
+
+[node name="EquipSlotBelt" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5" instance=ExtResource("22_c47ir")]
+layout_mode = 2
+icon = ExtResource("31_3wc4y")
+type_equippable = 7
+
+[node name="MainActionPanel" type="PanelContainer" parent="Margin/HBox/Control/EquipmentPanel"]
 visible = false
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 1
@@ -262,33 +270,208 @@ offset_bottom = -38.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Panel" type="Panel" parent="Margin/HBox/DetailPanel/MainActionPanel"]
+[node name="Panel" type="Panel" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/DetailPanel/MainActionPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel/MarginContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="UseButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+[node name="UseButton" type="Button" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel/MarginContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Usar"
 
-[node name="EquipButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+[node name="EquipButton" type="Button" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel/MarginContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Equipar"
 
-[node name="DropButton" type="Button" parent="Margin/HBox/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+[node name="DropButton" type="Button" parent="Margin/HBox/Control/EquipmentPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Soltar"
+
+[node name="DetailPanel" type="Panel" parent="Margin/HBox/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/Control/DetailPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DetailVBox" type="VBoxContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ItemName" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Godot Engine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+
+[node name="ItemIcon" type="TextureRect" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture = ExtResource("2_2qy46")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator2" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+
+[node name="InfoGrid" type="GridContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+columns = 2
+
+[node name="TypeLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+layout_mode = 2
+text = "Tipo:"
+
+[node name="TypeValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Recurso"
+
+[node name="QtyLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+layout_mode = 2
+text = "Cantidad:"
+
+[node name="QtyValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="HSeparator3" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+text = "Descripción:"
+
+[node name="DescriptionText" type="RichTextLabel" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Godot Engine es un motor de videojuegos gratuito y de código abierto que permite desarrollar juegos en 2D y 3D de forma intuitiva y eficiente. Fue creado por Juan Linietsky y Ariel Manzur, y liberado públicamente el 14 de enero de 2014 bajo licencia MIT"
+
+[node name="HSeparator4" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ActionButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+custom_minimum_size = Vector2(78, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Acción"
+
+[node name="ButtonBar" type="HBoxContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="UseButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Usar"
+
+[node name="EquipButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Equipar"
+
+[node name="DropButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Soltar"
+
+[node name="CloseButton" type="Button" parent="Margin/HBox/Control/DetailPanel"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "x"
+
+[node name="MainActionPanel" type="PanelContainer" parent="Margin/HBox/Control/DetailPanel"]
+visible = false
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -76.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Margin/HBox/Control/DetailPanel/MainActionPanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/Control/DetailPanel/MainActionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="UseButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Usar"
+
+[node name="EquipButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Equipar"
+
+[node name="DropButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MainActionPanel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Soltar"

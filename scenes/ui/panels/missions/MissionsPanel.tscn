@@ -59,7 +59,7 @@ layout_mode = 2
 placeholder_text = "Buscar..."
 
 [node name="FilterTabs" type="HBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 theme_override_constants/separation = 0
 

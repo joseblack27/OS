@@ -11,6 +11,7 @@ class_name ItemData
 	set(value):
 		type = value
 		type_descripcion = item_description[value]
+@export var type_equippable: Enums.type_items_inventory_equippables = Enums.type_items_inventory_equippables.NONE
 
 @export var can_use: bool = false
 @export var can_equip: bool = false
