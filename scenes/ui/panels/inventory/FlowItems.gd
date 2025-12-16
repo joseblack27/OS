@@ -6,6 +6,7 @@ class_name FlowItems
 # Espaciado entre elementos (coincidir con Separation)
 @export var spacing: int = 8
 
+var slot_scene: PackedScene = preload("res://scenes/ui/panels/inventory/ItemSlot.tscn")
 
 func _ready():
 	resized.connect(_update_layout)
@@ -35,3 +36,16 @@ func filter_items(filter_type: Enums.type_item_inventory):
 			item.visible = true
 		else:
 			item.visible = item.item_data.type == filter_type
+
+func _can_drop_data(_at_position, data):
+	return data is EquipoSlot
+
+func _drop_data(_at_position, data):
+	var item_slot = data
+	
+	var slot: ItemSlot = slot_scene.instantiate()
+	slot.item_data = item_slot.item_data
+	slot.slot_clicked.connect(owner._on_slot_clicked)
+	slot.custom_minimum_size = Vector2(56,56)
+	add_child(slot)
+	item_slot.item_data = null

@@ -54,11 +54,5 @@ func _get_drag_data(_at_position):
 	wrapper.add_child(preview)
 
 	set_drag_preview(wrapper)
-
-	#return {
-		#"item": item_data,
-		#"slot": item_data.type_equippable,
-		#"source": self
-	#}
 	
 	return self

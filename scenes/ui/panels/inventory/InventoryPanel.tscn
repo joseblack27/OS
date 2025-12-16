@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://6ysewcuhdy8u"]
+[gd_scene load_steps=42 format=3 uid="uid://6ysewcuhdy8u"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_tikhs"]
 [ext_resource type="Texture2D" uid="uid://cdm8uqar1sxjr" path="res://icon.svg" id="2_2qy46"]
@@ -25,15 +25,19 @@
 [ext_resource type="Resource" uid="uid://dljwusuionxbg" path="res://scripts/resources/items/equippables/casco_caballero_gris.tres" id="20_7e6tm"]
 [ext_resource type="Resource" uid="uid://bw6odx3kp6is1" path="res://scripts/resources/items/equippables/coraza_caballero_gris.tres" id="21_kuybn"]
 [ext_resource type="PackedScene" uid="uid://c51diq6hqeah1" path="res://scenes/ui/panels/inventory/EquipSlot.tscn" id="22_c47ir"]
-[ext_resource type="Resource" uid="uid://b4sthi81vxcf2" path="res://scripts/resources/items/equippables/quijote_caballero_gris.tres" id="22_dmwk7"]
+[ext_resource type="Resource" uid="uid://b4sthi81vxcf2" path="res://scripts/resources/items/equippables/grebas_caballero_gris.tres" id="22_dmwk7"]
 [ext_resource type="Resource" uid="uid://c4qnhswodm41n" path="res://scripts/resources/items/equippables/botas_caballero_gris.tres" id="23_3wc4y"]
 [ext_resource type="Texture2D" uid="uid://b3uvsh07edb7c" path="res://assets/icons/slots/slot_8.png" id="23_8tsm6"]
 [ext_resource type="Texture2D" uid="uid://c7dml7cnfiigl" path="res://assets/icons/slots/slot_7.png" id="24_1tche"]
 [ext_resource type="Resource" uid="uid://csf1xk7k0mq4q" path="res://scripts/resources/items/equippables/escudo_caballero_noble.tres" id="24_kuybn"]
+[ext_resource type="Resource" uid="uid://33vmmht8h75w" path="res://scripts/resources/items/equippables/amuleto_de_zafiro.tres" id="25_efoq6"]
 [ext_resource type="Texture2D" uid="uid://ddby3umovr8vp" path="res://assets/icons/slots/slot_0.png" id="25_x5xd4"]
 [ext_resource type="Texture2D" uid="uid://bkl7jerunoya" path="res://assets/icons/slots/slot_4.png" id="26_hshqp"]
+[ext_resource type="Resource" uid="uid://dvdnjnjgihgjt" path="res://scripts/resources/items/equippables/anillo_de_hierro_esmeralda.tres" id="26_opke1"]
+[ext_resource type="Resource" uid="uid://cpr1twxh2fy0l" path="res://scripts/resources/items/equippables/anillo_dorado.tres" id="27_mfiu4"]
 [ext_resource type="Texture2D" uid="uid://eq5orn555h1d" path="res://assets/icons/slots/slot_1.png" id="27_s7e8m"]
 [ext_resource type="Texture2D" uid="uid://dxfglusqjwhcr" path="res://assets/icons/slots/slot_5.png" id="28_7e6tm"]
+[ext_resource type="Resource" uid="uid://n1qjpo3nk71j" path="res://scripts/resources/items/equippables/cinturon_de principiante.tres" id="28_846rq"]
 [ext_resource type="Texture2D" uid="uid://bedaabet7ahyt" path="res://assets/icons/slots/slot_2.png" id="29_kuybn"]
 [ext_resource type="Texture2D" uid="uid://b40ww05yttmik" path="res://assets/icons/slots/slot_3.png" id="30_dmwk7"]
 [ext_resource type="Texture2D" uid="uid://ddyia4fu53xg2" path="res://assets/icons/slots/slot_6.png" id="31_3wc4y"]
@@ -48,7 +52,7 @@ grow_vertical = 2
 theme = ExtResource("1_tikhs")
 script = ExtResource("2_js0jc")
 slot_scene = ExtResource("3_cdap4")
-items = Array[ExtResource("4_2dtve")]([ExtResource("6_kk5td"), ExtResource("6_a406a"), ExtResource("7_tf88s"), ExtResource("8_c47ir"), ExtResource("7_lyq21"), ExtResource("8_qtex0"), ExtResource("11_ytosb"), ExtResource("9_oe81b"), ExtResource("10_gejl0"), ExtResource("11_50os3"), ExtResource("13_tf88s"), ExtResource("16_g2q0i"), ExtResource("17_x6y5c"), ExtResource("18_4f4rx"), ExtResource("19_1tche"), ExtResource("20_7e6tm"), ExtResource("21_kuybn"), ExtResource("22_dmwk7"), ExtResource("23_3wc4y"), ExtResource("24_kuybn")])
+items = Array[ExtResource("4_2dtve")]([ExtResource("6_kk5td"), ExtResource("6_a406a"), ExtResource("7_tf88s"), ExtResource("8_c47ir"), ExtResource("7_lyq21"), ExtResource("8_qtex0"), ExtResource("11_ytosb"), ExtResource("9_oe81b"), ExtResource("10_gejl0"), ExtResource("11_50os3"), ExtResource("13_tf88s"), ExtResource("16_g2q0i"), ExtResource("17_x6y5c"), ExtResource("18_4f4rx"), ExtResource("19_1tche"), ExtResource("20_7e6tm"), ExtResource("21_kuybn"), ExtResource("22_dmwk7"), ExtResource("23_3wc4y"), ExtResource("24_kuybn"), ExtResource("25_efoq6"), ExtResource("26_opke1"), ExtResource("27_mfiu4"), ExtResource("28_846rq")])
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
