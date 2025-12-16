@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beosihm3plbhi"
-path="res://.godot/imported/cerrar_px_1.png-63410f9730f55002e0dd2a607af452b5.ctex"
+uid="uid://jo180axoiqip"
+path="res://.godot/imported/boton_hover_5.png-927c59d2a7b921d295a1b62709539fb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/buttons/cerrar_px_1.png"
-dest_files=["res://.godot/imported/cerrar_px_1.png-63410f9730f55002e0dd2a607af452b5.ctex"]
+source_file="res://assets/icons/buttons/skills/boton_hover_5.png"
+dest_files=["res://.godot/imported/boton_hover_5.png-927c59d2a7b921d295a1b62709539fb4.ctex"]
 
 [params]
 

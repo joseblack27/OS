@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmdtrisnerooq"
-path="res://.godot/imported/cerrar_px_5.png-df0e4795b62044d9f16aabeba8b7bc1c.ctex"
+uid="uid://dqes2npubfewe"
+path="res://.godot/imported/boton_2.png-2bfd321774c96afb095d37b754346625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/buttons/cerrar_px_5.png"
-dest_files=["res://.godot/imported/cerrar_px_5.png-df0e4795b62044d9f16aabeba8b7bc1c.ctex"]
+source_file="res://assets/icons/buttons/skills/boton_2.png"
+dest_files=["res://.godot/imported/boton_2.png-2bfd321774c96afb095d37b754346625.ctex"]
 
 [params]
 

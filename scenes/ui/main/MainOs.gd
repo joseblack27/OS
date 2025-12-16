@@ -17,6 +17,7 @@ signal main_button_close
 @onready var btn_shortcut_message: Button = $ColorRect2/MessageButton
 @onready var btn_shortcut_missions : Button= $ColorRect2/MissionsButton
 @onready var btn_shortcut_inventory: Button = $ColorRect2/InventoryButton
+@onready var btn_shortcut_skills: Button = $ColorRect2/SkillsButton
 
 @onready var inventory_panel: InventoryPanel = $ColorRect/Margin/VBox/TabContainer/InventoryTab/InventoryPanel
 
@@ -25,6 +26,7 @@ func _ready():
 	btn_shortcut_message.pressed.connect(_on_shortcut_message)
 	btn_shortcut_missions.pressed.connect(_on_shortcut_missions)
 	btn_shortcut_inventory.pressed.connect(_on_shortcut_inventory)
+	btn_shortcut_skills.pressed.connect(_on_shortcut_skills)
 	
 	
 	btn_dashboard.pressed.connect(_on_btn_dashboard)
@@ -55,7 +57,9 @@ func _on_shortcut_inventory():
 	color_rect.show()
 	_on_btn_inventory()
 
-
+func _on_shortcut_skills():
+	color_rect.show()
+	_on_btn_skills()
 
 func _on_tab_button_pressed(index: int) -> void:
 	tabs.current_tab = index
