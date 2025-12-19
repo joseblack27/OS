@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfmy15nixg3h3"]
+[gd_scene load_steps=14 format=3 uid="uid://dfmy15nixg3h3"]
 
 [ext_resource type="Script" uid="uid://q3ja4na5cowa" path="res://scenes/ui/main/MainOs.gd" id="1_8r8lf"]
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="2_n01vk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://n66xoqg60m4" path="res://assets/icons/tabs/tab_10.png" id="6_8rkdy"]
 [ext_resource type="PackedScene" uid="uid://6ysewcuhdy8u" path="res://scenes/ui/panels/inventory/InventoryPanel.tscn" id="6_gesyk"]
 [ext_resource type="Texture2D" uid="uid://dd5r743sdao5r" path="res://assets/icons/tabs/tab_6.png" id="7_8rkdy"]
+[ext_resource type="PackedScene" uid="uid://cl33iq5nafsfv" path="res://scenes/ui/panels/mails/MailsPanel.tscn" id="10_hq1p8"]
 [ext_resource type="PackedScene" uid="uid://vx8rpfo3obau" path="res://scenes/ui/panels/skills/SkillsPanel.tscn" id="11_rxrgu"]
 
 [node name="MainOS" type="Control"]
@@ -124,11 +125,14 @@ icon = ExtResource("7_8rkdy")
 icon_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -180,7 +184,7 @@ theme_override_font_sizes/font_size = 15
 text = "x"
 
 [node name="Panel" type="Panel" parent="ColorRect/Margin/VBox"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="TopBar" type="HBoxContainer" parent="ColorRect/Margin/VBox/Panel"]
@@ -254,6 +258,10 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="MessagesPanel" parent="ColorRect/Margin/VBox/TabContainer/MessagesTab" instance=ExtResource("4_07ygr")]
+visible = false
+layout_mode = 1
+
+[node name="MailsPanel" parent="ColorRect/Margin/VBox/TabContainer/MessagesTab" instance=ExtResource("10_hq1p8")]
 layout_mode = 1
 
 [node name="MissionsTab" type="Control" parent="ColorRect/Margin/VBox/TabContainer"]

@@ -182,8 +182,7 @@ alignment = 1
 [node name="HBoxContainer1" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 26
-alignment = 1
+theme_override_constants/separation = 8
 
 [node name="EquipSlotWeapon" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1" instance=ExtResource("22_c47ir")]
 layout_mode = 2
@@ -198,8 +197,7 @@ type_equippable = 9
 [node name="HBoxContainer2" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 26
-alignment = 1
+theme_override_constants/separation = 8
 
 [node name="EquipSlotHelmet" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2" instance=ExtResource("22_c47ir")]
 layout_mode = 2
@@ -214,8 +212,7 @@ type_equippable = 5
 [node name="HBoxContainer3" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 26
-alignment = 1
+theme_override_constants/separation = 8
 
 [node name="EquipSlotBody" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3" instance=ExtResource("22_c47ir")]
 layout_mode = 2
@@ -230,8 +227,7 @@ type_equippable = 6
 [node name="HBoxContainer4" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 26
-alignment = 1
+theme_override_constants/separation = 8
 
 [node name="EquipSlotPant" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4" instance=ExtResource("22_c47ir")]
 layout_mode = 2
@@ -246,8 +242,7 @@ type_equippable = 6
 [node name="HBoxContainer5" type="HBoxContainer" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 26
-alignment = 1
+theme_override_constants/separation = 8
 
 [node name="EquipSlotBoots" parent="Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5" instance=ExtResource("22_c47ir")]
 layout_mode = 2
@@ -351,24 +346,29 @@ stretch_mode = 5
 [node name="HSeparator2" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
 layout_mode = 2
 
-[node name="InfoGrid" type="GridContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="InfoGrid" type="GridContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer"]
 layout_mode = 2
 columns = 2
 
-[node name="TypeLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+[node name="TypeLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid"]
 layout_mode = 2
 text = "Tipo:"
 
-[node name="TypeValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+[node name="TypeValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Recurso"
 
-[node name="QtyLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+[node name="QtyLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid"]
 layout_mode = 2
 text = "Cantidad:"
 
-[node name="QtyValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid"]
+[node name="QtyValue" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
@@ -376,11 +376,21 @@ text = "1"
 [node name="HSeparator3" type="HSeparator" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
 layout_mode = 2
 
-[node name="DescriptionLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+[node name="MarginContainer2" type="MarginContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DescriptionLabel" type="Label" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Descripción:"
 
-[node name="DescriptionText" type="RichTextLabel" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
+[node name="DescriptionText" type="RichTextLabel" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Godot Engine es un motor de videojuegos gratuito y de código abierto que permite desarrollar juegos en 2D y 3D de forma intuitiva y eficiente. Fue creado por Juan Linietsky y Ariel Manzur, y liberado públicamente el 14 de enero de 2014 bajo licencia MIT"

@@ -12,9 +12,9 @@ class_name InventoryPanel
 # Panel de detalle
 @onready var item_name := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ItemName
 @onready var item_icon := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ItemIcon
-@onready var type_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid/TypeValue
-@onready var qty_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/InfoGrid/QtyValue
-@onready var description_text := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/DescriptionText
+@onready var type_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid/TypeValue
+@onready var qty_value := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer/InfoGrid/QtyValue
+@onready var description_text := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/MarginContainer2/VBoxContainer/DescriptionText
 @onready var close_button := $Margin/HBox/Control/DetailPanel/CloseButton
 @onready var detail_panel_margin := $Margin/HBox/Control/DetailPanel
 
