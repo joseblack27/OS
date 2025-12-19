@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5rry1")
 script = ExtResource("2_w7qmk")
-list_mails = Array[ExtResource("3_t43pk")]([ExtResource("4_481o0"), ExtResource("5_sgyx7"), ExtResource("6_iiea4"), ExtResource("7_xtcjg"), ExtResource("8_yxi8n")])
+list_mails = Array[ExtResource("3_t43pk")]([ExtResource("4_481o0"), ExtResource("5_sgyx7"), ExtResource("6_iiea4"), ExtResource("7_xtcjg"), ExtResource("8_yxi8n"), ExtResource("4_481o0"), ExtResource("5_sgyx7"), ExtResource("6_iiea4"), ExtResource("7_xtcjg"), ExtResource("8_yxi8n"), ExtResource("4_481o0"), ExtResource("5_sgyx7"), ExtResource("6_iiea4"), ExtResource("7_xtcjg"), ExtResource("8_yxi8n")])
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -53,19 +53,6 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Conversaciones"
-
-[node name="SearchBar" type="LineEdit" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-placeholder_text = "Buscar..."
-
-[node name="HSeparator" type="HSeparator" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]

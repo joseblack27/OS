@@ -7,7 +7,7 @@ class_name InventoryPanel
 @export var min_spacing := 4                 # mínimo espacio permitido
 
 @onready var grid: GridContainer = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/GridContainer
-@onready var flow: FlowItems = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/MarginContainer/FlowItems
+@onready var flow: FlowItems = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/MarginContainer/ScrollContainer/FlowItems
 
 # Panel de detalle
 @onready var item_name := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ItemName
