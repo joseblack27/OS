@@ -39,7 +39,6 @@ func _ready():
 	background_black()
 
 func _on_toggled(_pressed: bool) -> void:
-	print("pressed - ", title_label.text)
 	if _pressed:
 		label_font_black()
 		background_white()
@@ -49,25 +48,19 @@ func _on_toggled(_pressed: bool) -> void:
 		background_black()
 
 func _on_button_down():
-	#if button_pressed == true:
 	presionado = true
-	print("----------")
-	print("button pressed: ", button_pressed)
 	if button_pressed == true:
 		label_font_black()
 		background_white()
 	else:
 		label_font_white()
 		background_black()
-	print("button_down - ", title_label.text)
 
 func _on_button_up():
 	if presionado == true:
 		label_font_black()
 		background_white()
 		presionado = false
-		print("button_up - ", title_label.text)
-		print("----------")
 
 func _on_mouse_exited():
 	if presionado == true:
@@ -78,8 +71,6 @@ func _on_mouse_exited():
 			label_font_white()
 			background_black()
 		presionado = false
-		print("mouse_exited - ", title_label.text)
-		print("----------")
 
 
 
