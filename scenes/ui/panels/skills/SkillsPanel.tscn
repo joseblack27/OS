@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://c6t4kbl6xo405" path="res://scripts/resources/skills/bola_de_fuego.tres" id="4_ldkid"]
 [ext_resource type="Resource" uid="uid://d3elulj0pqs7d" path="res://scripts/resources/skills/esquirla_helada.tres" id="5_ldkid"]
 [ext_resource type="Resource" uid="uid://dm8bip261qqn" path="res://scripts/resources/skills/picos_rocosos.tres" id="6_mhbd6"]
-[ext_resource type="Script" uid="uid://dqs4ojlh8wjl2" path="res://scenes/ui/panels/skills/DetailPanel.gd" id="7_ldkid"]
+[ext_resource type="Script" uid="uid://dqs4ojlh8wjl2" path="res://scenes/ui/panels/skills/SkillDetailPanel.gd" id="7_ldkid"]
 
 [node name="SkillsPanel" type="Control"]
 layout_mode = 3

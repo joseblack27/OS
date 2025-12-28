@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://scripts/autoloads/Enums.gd"
+Utils="*res://scripts/autoloads/Utils.gd"
+EventManager="*res://scripts/autoloads/EventManager.gd"
 
 [display]
 

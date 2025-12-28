@@ -30,9 +30,9 @@ func _update_layout():
 		if child is Control:
 			child.custom_minimum_size = Vector2(cell_size, cell_size)
 
-func filter_items(filter_type: Enums.type_item_inventory):
+func filter_items(filter_type: Enums.Inventory.TypeItem):
 	for item: ItemSlot in get_children():
-		if filter_type == Enums.type_item_inventory.ALL:
+		if filter_type == Enums.Inventory.TypeItem.ALL:
 			item.visible = true
 		else:
 			item.visible = item.item_data.type == filter_type

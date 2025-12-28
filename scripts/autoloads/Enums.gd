@@ -1,38 +1,62 @@
 extends Node
 
-enum type_item_inventory {
-	NONE,
-	ALL,
-	CONSUMABLE,
-	EQUIPPABLE,
-	RESOURCE,
-	QUEST,
-	WEAPON
-}
+class Inventory:
+	enum TypeItem {
+		NONE,
+		ALL,
+		CONSUMABLE,
+		EQUIPPABLE,
+		RESOURCE,
+		QUEST,
+		WEAPON
+	}
 
-enum type_items_inventory_equippables {
-	NONE,
-	HELMET,
-	BODY,
-	PANT,
-	BOOTS,
-	NECK,
-	RING,
-	BELT,
-	WEAPON,
-	SHIELD
-}
+	enum TypeItemEquippable {
+		NONE,
+		HELMET,
+		BODY,
+		PANT,
+		BOOTS,
+		NECK,
+		RING,
+		BELT,
+		WEAPON,
+		SHIELD
+	}
 
-enum color_damage {
-	EARTH,
-	FIRE,
-	WATER,
-	WIND
-}
+class Skill:
+	enum TypeLaunch {
+		PROYECTIL,
+		AREA
+	}
+	
+	enum ColorDamage {
+		EARTH,
+		FIRE,
+		WATER,
+		WIND
+	}
 
-const color_damage_value := {
-	color_damage.EARTH: "#905010",
-	color_damage.FIRE: "red",
-	color_damage.WATER: "#00c4ff",
-	color_damage.WIND: "#008f39"
-}
+	const color_damage_value := {
+		ColorDamage.EARTH: "#905010",
+		ColorDamage.FIRE: "red",
+		ColorDamage.WATER: "#00c4ff",
+		ColorDamage.WIND: "#008f39"
+	}
+
+class Event:
+	enum Type {
+		WORLD_BOSS,
+		DUNGEON,
+		INVASION,
+		WORLD_CHANGE,
+		FACTION
+	}
+
+	enum Status {
+		UPCOMING,
+		ACTIVE,
+		COMPLETED,
+		FAILED,
+		CANCELLED
+	}

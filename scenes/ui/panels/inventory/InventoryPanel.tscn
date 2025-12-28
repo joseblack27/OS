@@ -97,8 +97,8 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="AllButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Todos"
 script = ExtResource("19_tf88s")
@@ -106,8 +106,8 @@ filter_type = 1
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="EquipmentsButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Equipos"
 script = ExtResource("19_tf88s")
@@ -115,8 +115,8 @@ filter_type = 3
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="ConsumablesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Consumibles"
 script = ExtResource("19_tf88s")
@@ -124,8 +124,8 @@ filter_type = 2
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="ResourcesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Recursos"
 script = ExtResource("19_tf88s")

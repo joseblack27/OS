@@ -58,6 +58,7 @@ func _ready():
 	#_update_spacing()
 	_update_spacing_3()
 	#_on_flow()
+	set_active_filter_button(all_filter_button)
 	
 	#main_os.main_button_close.connect(_on_close_button)
 	var main_os = get_tree().get_root().find_child("MainOS", true, false)

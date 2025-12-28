@@ -37,6 +37,6 @@ func show_skill(skill: SkillData):
 		skill.damage_calculated_max
 	]
 
-	type_launch_label.text = skill.launch_type
+	type_launch_label.text = Utils.snake_to_pascal(Enums.Skill.TypeLaunch.keys()[skill.type_launch])
 	range_launch_label.text = "%d metros" % skill.range_meters
 	cool_down_label.text = "%d segundos" % skill.cooldown_seconds

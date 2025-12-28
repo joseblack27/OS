@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfmy15nixg3h3"]
+[gd_scene load_steps=15 format=3 uid="uid://dfmy15nixg3h3"]
 
 [ext_resource type="Script" uid="uid://q3ja4na5cowa" path="res://scenes/ui/main/MainOs.gd" id="1_8r8lf"]
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="2_n01vk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dd5r743sdao5r" path="res://assets/icons/tabs/tab_6.png" id="7_8rkdy"]
 [ext_resource type="PackedScene" uid="uid://cl33iq5nafsfv" path="res://scenes/ui/panels/mails/MailsPanel.tscn" id="10_hq1p8"]
 [ext_resource type="PackedScene" uid="uid://vx8rpfo3obau" path="res://scenes/ui/panels/skills/SkillsPanel.tscn" id="11_rxrgu"]
+[ext_resource type="PackedScene" uid="uid://devgqv2nmuytk" path="res://scenes/ui/panels/events/EventsPanel.tscn" id="14_rwlrv"]
 
 [node name="MainOS" type="Control"]
 custom_minimum_size = Vector2(720, 360)
@@ -227,6 +228,7 @@ toggle_mode = true
 text = "Habilidades"
 
 [node name="BtnEncyclopedia" type="Button" parent="ColorRect/Margin/VBox/Panel/TopBar"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
@@ -241,11 +243,10 @@ text = "Eventos"
 [node name="TabContainer" type="TabContainer" parent="ColorRect/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 4
+current_tab = 0
 tabs_visible = false
 
 [node name="DashboardTab" type="Control" parent="ColorRect/Margin/VBox/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -281,6 +282,7 @@ metadata/_tab_index = 3
 layout_mode = 1
 
 [node name="SkillsTab" type="Control" parent="ColorRect/Margin/VBox/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
@@ -296,3 +298,6 @@ metadata/_tab_index = 5
 visible = false
 layout_mode = 2
 metadata/_tab_index = 6
+
+[node name="EventsPanel" parent="ColorRect/Margin/VBox/TabContainer/WorldLogTab" instance=ExtResource("14_rwlrv")]
+layout_mode = 1

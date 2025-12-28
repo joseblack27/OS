@@ -1,6 +1,6 @@
 extends Button
 
-@export var filter_type: Enums.type_item_inventory = Enums.type_item_inventory.NONE
+@export var filter_type: Enums.Inventory.TypeItem = Enums.Inventory.TypeItem.NONE
 
 @export var flow_items: FlowItems # Seleccionado desde el inspector
 

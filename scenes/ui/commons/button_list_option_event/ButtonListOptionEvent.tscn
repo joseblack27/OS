@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1jr5mjskl5dq"]
+[gd_scene load_steps=3 format=3 uid="uid://djtu2vk7m0bg2"]
 
-[ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_vmcuw"]
-[ext_resource type="Script" uid="uid://ctu1lany17r8v" path="res://scenes/ui/commons/button_list_option/ButtonListOption.gd" id="2_5c7nh"]
+[ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_ufnsy"]
+[ext_resource type="Script" uid="uid://cfj7ily82v74c" path="res://scenes/ui/commons/button_list_option_event/ButtonListOptionEvent.gd" id="2_v8vfd"]
 
-[node name="ButtonListOption" type="Button"]
+[node name="ButtonListOptionEvent" type="Button"]
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 10
 anchor_right = 1.0
@@ -11,10 +11,10 @@ offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-theme = ExtResource("1_vmcuw")
+theme = ExtResource("1_ufnsy")
 theme_type_variation = &"ButtonListOption"
 toggle_mode = true
-script = ExtResource("2_5c7nh")
+script = ExtResource("2_v8vfd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -32,7 +32,11 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -40,6 +44,12 @@ theme_override_font_sizes/font_size = 14
 text = "Título"
 clip_text = true
 text_overrun_behavior = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

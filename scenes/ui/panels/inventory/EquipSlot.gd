@@ -5,7 +5,7 @@ class_name EquipoSlot
 	set(value):
 		icon = value
 		update_item()
-@export var type_equippable: Enums.type_items_inventory_equippables = Enums.type_items_inventory_equippables.NONE
+@export var type_equippable: Enums.Inventory.TypeItemEquippable = Enums.Inventory.TypeItemEquippable.NONE
 
 func update_item():
 	if item_data:

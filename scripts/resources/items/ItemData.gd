@@ -7,11 +7,11 @@ class_name ItemData
 
 # Opcional para más adelante
 @export var description: String = ""
-@export var type: Enums.type_item_inventory = Enums.type_item_inventory.NONE:
+@export var type: Enums.Inventory.TypeItem = Enums.Inventory.TypeItem.NONE:
 	set(value):
 		type = value
 		type_descripcion = item_description[value]
-@export var type_equippable: Enums.type_items_inventory_equippables = Enums.type_items_inventory_equippables.NONE
+@export var type_equippable: Enums.Inventory.TypeItemEquippable = Enums.Inventory.TypeItemEquippable.NONE
 
 @export var can_use: bool = false
 @export var can_equip: bool = false
@@ -20,11 +20,11 @@ class_name ItemData
 var type_descripcion: String
 
 const item_description := {
-	Enums.type_item_inventory.NONE: "vacio",
-	Enums.type_item_inventory.ALL: "todos",
-	Enums.type_item_inventory.CONSUMABLE: "consumible",
-	Enums.type_item_inventory.RESOURCE: "recurso",
-	Enums.type_item_inventory.WEAPON: "arma",
-	Enums.type_item_inventory.QUEST: "misión",
-	Enums.type_item_inventory.EQUIPPABLE: "equipable"
+	Enums.Inventory.TypeItem.NONE: "vacio",
+	Enums.Inventory.TypeItem.ALL: "todos",
+	Enums.Inventory.TypeItem.CONSUMABLE: "consumible",
+	Enums.Inventory.TypeItem.RESOURCE: "recurso",
+	Enums.Inventory.TypeItem.WEAPON: "arma",
+	Enums.Inventory.TypeItem.QUEST: "misión",
+	Enums.Inventory.TypeItem.EQUIPPABLE: "equipable"
 }

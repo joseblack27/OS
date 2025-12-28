@@ -14,6 +14,6 @@ class_name SkillData
 @export var damage_calculated_min: int
 @export var damage_calculated_max: int
 
-@export var launch_type: String
+@export var type_launch: Enums.Skill.TypeLaunch
 @export var range_meters: int
 @export var cooldown_seconds: float
