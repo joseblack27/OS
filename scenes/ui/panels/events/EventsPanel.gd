@@ -16,22 +16,24 @@ func _on_event_selected(event: EventData):
 func _create_test_events():
 	var now := Time.get_unix_time_from_system()
 
-	var e1 := EventData.new()
-	e1.id = "world_boss"
-	e1.title = "Jefe de Mundo"
-	e1.subtitle = "Coloso Carmesí"
-	e1.description = "Una criatura ancestral ha despertado."
-	e1.start_time = now + 5
-	e1.end_time = now + 300
+	for i in range(30):
+		var e := EventData.new()
 
-	EventManager.add_event(e1)
+		if i % 2 == 0:
+			e.id = "world_boss - %d" % i
+			e.title = "Jefe de Mundo - %d" % i
+			e.subtitle = "Coloso Carmesí"
+			e.description = "Una criatura ancestral ha despertado."
+			e.start_time = now + 5
+			e.end_time = now + 10
+			e.is_persistent = true
+		else:
+			e.id = "dungeon - %d" % i
+			e.title = "Mazmorra - %d" % i
+			e.subtitle = "Cripta Oscura"
+			e.description = "Una mazmorra peligrosa ha sido descubierta."
+			e.start_time = now - 5
+			e.end_time = now + 10
+			e.is_persistent = false
 
-	var e2 := EventData.new()
-	e2.id = "dungeon"
-	e2.title = "Mazmorra"
-	e2.subtitle = "Cripta Oscura"
-	e2.description = "Una mazmorra peligrosa ha sido descubierta."
-	e2.start_time = now - 60
-	e2.end_time = now + 10
-
-	EventManager.add_event(e2)
+		EventManager.add_event(e)

@@ -19,6 +19,7 @@ class_name EventData
 @export var location_id: String
 @export var location_name: String
 
+@export var is_persistent: bool = false
 @export var is_global: bool = true
 @export var is_repeatable: bool = false
 @export var is_visible: bool = true

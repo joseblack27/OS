@@ -6,6 +6,8 @@ signal event_expired(event: EventData)
 var events: Array[EventData] = []
 var event_selected: EventData
 
+const EVENTS_MAX: int = 20
+
 @onready var _timer := Timer.new()
 
 func _ready():
@@ -16,7 +18,7 @@ func _ready():
 
 func _on_tick():
 	var now := Time.get_unix_time_from_system()
-
+	var expired: bool = false
 	for event in events:
 
 		if now < event.start_time:
@@ -25,9 +27,20 @@ func _on_tick():
 			event.status = Enums.Event.Status.ACTIVE
 		else:
 			event.status = Enums.Event.Status.COMPLETED
-			event_expired.emit(event)
-		event_updated.emit(event)
+			if event.is_persistent == false:
+				expired = true
+				event_expired.emit(event)
+		if expired == false:
+			event_updated.emit(event)
 
 func add_event(event: EventData):
-	events.append(event)
+	if events.size() >= EVENTS_MAX:
+		events.pop_back()
+	events.push_front(event)
 	event_updated.emit(event)
+
+func delete_event_by_id(id: String):
+	for i in range(events.size()):
+		if events[i].id == id:
+			events.remove_at(i)
+			return

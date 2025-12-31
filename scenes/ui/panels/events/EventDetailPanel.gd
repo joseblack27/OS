@@ -8,16 +8,19 @@ class_name EventDetailPanel
 @onready var detail_panel: MarginContainer = $MarginContainer
 
 func show_event(event: EventData):
-	detail_panel.visible = true
+	if event == null:
+		detail_panel.visible = false
+	else:
+		detail_panel.visible = true
 
-	title_label.text = event.title
-	subtitle_label.text = event.subtitle
-	description_label.text = event.description
+		title_label.text = event.title
+		subtitle_label.text = event.subtitle
+		description_label.text = event.description
 
-	match event.status:
-		Enums.Event.Status.UPCOMING:
-			status_label.text = "Próximamente"
-		Enums.Event.Status.ACTIVE:
-			status_label.text = "Activo"
-		Enums.Event.Status.COMPLETED:
-			status_label.text = "Finalizado"
+		match event.status:
+			Enums.Event.Status.UPCOMING:
+				status_label.text = "Próximamente"
+			Enums.Event.Status.ACTIVE:
+				status_label.text = "Activo"
+			Enums.Event.Status.COMPLETED:
+				status_label.text = "Finalizado"
