@@ -60,3 +60,27 @@ class Event:
 		FAILED,
 		CANCELLED
 	}
+
+class Mission:
+	enum Type {
+		HISTORIA,
+		SECUNDARIA,
+		EVENTO,
+		DIARIA
+	}
+
+	enum Status {
+		LOCKED,
+		AVAILABLE,
+		IN_PROGRESS,
+		COMPLETED,
+		FAILED
+	}
+	
+	func _get_type_text(type: Mission.Type) -> String:
+		match type:
+			Mission.Type.HISTORIA: return "Historia"
+			Mission.Type.SECUNDARIA: return "Secundaria"
+			Mission.Type.EVENTO: return "Evento"
+			Mission.Type.DIARIA: return "Diaria"
+		return "-"

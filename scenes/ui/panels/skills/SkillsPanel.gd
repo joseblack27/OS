@@ -2,8 +2,9 @@ extends Control
 
 @export var skills: Array[SkillData]
 
-@onready var skill_list_panel := $MarginContainer/HBoxContainer/SkillsListPanel/MarginContainer/ScrollContainer/VBoxContainer
+@onready var skill_list_panel := $MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/ScrollContainer/VBoxContainer
 @onready var detail_panel := $MarginContainer/HBoxContainer/DetailPanel
+@onready var group_button := ButtonGroup.new()
 
 @export var skill_item_scene: PackedScene = preload("res://scenes/ui/panels/skills/SkillItem.tscn")
 
@@ -16,6 +17,7 @@ func populate():
 
 	for skill in skills:
 		var item: SkillItem = skill_item_scene.instantiate()
+		item.button_group = group_button
 		item.skill_data = skill
 		item.skill_selected.connect(_on_skill_selected)
 		item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
