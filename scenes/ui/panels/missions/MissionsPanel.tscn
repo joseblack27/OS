@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxthynfs5udhq"]
+[gd_scene load_steps=5 format=3 uid="uid://bxthynfs5udhq"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_rp7j6"]
 [ext_resource type="Script" uid="uid://dcshss2mjuvn8" path="res://scenes/ui/panels/missions/MissionsPanel.gd" id="2_ofohn"]
+[ext_resource type="Resource" uid="uid://dyveda7lfpgmg" path="res://scripts/resources/missions/mision_1.tres" id="3_pf7ic"]
+[ext_resource type="Script" uid="uid://dkys83tplf2hs" path="res://scripts/resources/missions/MissionData.gd" id="3_whemo"]
 
 [node name="MissionsPanel" type="Control"]
 layout_mode = 3
@@ -12,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rp7j6")
 script = ExtResource("2_ofohn")
+list_mission = Array[ExtResource("3_whemo")]([ExtResource("3_pf7ic"), ExtResource("3_pf7ic"), ExtResource("3_pf7ic"), ExtResource("3_pf7ic"), ExtResource("3_pf7ic")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -81,11 +84,17 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Pendientes"
 
-[node name="MissionsList" type="VBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="MissionsList" type="VBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="MissionDetailPanel" type="Panel" parent="MarginContainer/HBox"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
