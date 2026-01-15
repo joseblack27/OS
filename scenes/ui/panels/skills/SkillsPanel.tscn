@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vx8rpfo3obau"]
+[gd_scene load_steps=10 format=3 uid="uid://vx8rpfo3obau"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_0mcs0"]
 [ext_resource type="Script" uid="uid://diaoekjgu6y5q" path="res://scenes/ui/panels/skills/SkillsPanel.gd" id="2_f1m4p"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://d3elulj0pqs7d" path="res://scripts/resources/skills/esquirla_helada.tres" id="5_ldkid"]
 [ext_resource type="Resource" uid="uid://dm8bip261qqn" path="res://scripts/resources/skills/picos_rocosos.tres" id="6_mhbd6"]
 [ext_resource type="Script" uid="uid://dqs4ojlh8wjl2" path="res://scenes/ui/panels/skills/SkillDetailPanel.gd" id="7_ldkid"]
+[ext_resource type="PackedScene" uid="uid://detnq67ilbdn4" path="res://scenes/ui/commons/scroll_bar_v/ScrollBarV.tscn" id="7_mhbd6"]
 
 [node name="SkillsPanel" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0mcs0")
 script = ExtResource("2_f1m4p")
-skills = Array[ExtResource("3_2yhil")]([ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6")])
+skills = Array[ExtResource("3_2yhil")]([ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6"), ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6"), ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,15 +53,25 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer"]
 layout_mode = 2
-horizontal_scroll_mode = 0
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 1
+
+[node name="ScrollBarV" parent="MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("7_mhbd6")]
+layout_mode = 2
+scroll_container = NodePath("../ScrollContainer")
 
 [node name="DetailPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

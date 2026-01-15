@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://ddlr8menttf7k"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://ddlr8menttf7k"]
 
 [ext_resource type="FontFile" uid="uid://53dduvrn2yrw" path="res://assets/fonts/jet brain mono/JetBrainsMono-Light.ttf" id="1_asgch"]
 
@@ -90,16 +90,21 @@ border_width_bottom = 1
 border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwe2x"]
-bg_color = Color(1, 1, 1, 0.6666667)
+bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 corner_detail = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ltnp"]
-bg_color = Color(1, 1, 1, 0.6666667)
+bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 corner_detail = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xahun"]
-bg_color = Color(1, 1, 1, 0.6666667)
+bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab8w7"]
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
 
 [resource]
 default_font = ExtResource("1_asgch")
@@ -126,3 +131,4 @@ TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_i0cme")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_cwe2x")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_3ltnp")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_xahun")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ab8w7")

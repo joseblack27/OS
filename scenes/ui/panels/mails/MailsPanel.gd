@@ -5,7 +5,7 @@ class_name MailsPanel
 
 @onready var group_button := ButtonGroup.new()
 @onready var mail_scene: PackedScene = preload("res://scenes/ui/commons/button_list_option/ButtonListOption.tscn")
-@onready var mail_list: VBoxContainer = $Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/ScrollContainer/MailList
+@onready var mail_list: VBoxContainer = $Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer/MailList
 
 @onready var mail_view: VBoxContainer = $Margin/HBox/MailDetailsPanel/MarginContainer/MailView
 @onready var mail_header: Label = $Margin/HBox/MailDetailsPanel/MarginContainer/MailView/MailHeader

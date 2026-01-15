@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl33iq5nafsfv"]
+[gd_scene load_steps=10 format=3 uid="uid://cl33iq5nafsfv"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_5rry1"]
 [ext_resource type="Script" uid="uid://cebwdom5ek3nv" path="res://scenes/ui/panels/mails/MailsPanel.gd" id="2_w7qmk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://ccsf0hdd5ahpt" path="res://scripts/resources/mails/correo_3.tres" id="6_iiea4"]
 [ext_resource type="Resource" uid="uid://5l64yaokkp7q" path="res://scripts/resources/mails/correo_4.tres" id="7_xtcjg"]
 [ext_resource type="Resource" uid="uid://c0u4ggv57eq75" path="res://scripts/resources/mails/correo_5.tres" id="8_yxi8n"]
+[ext_resource type="PackedScene" uid="uid://detnq67ilbdn4" path="res://scenes/ui/commons/scroll_bar_v/ScrollBarV.tscn" id="9_iiea4"]
 
 [node name="MailsPanel" type="Control"]
 layout_mode = 3
@@ -54,16 +55,27 @@ theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
+theme_override_constants/separation = 0
 
-[node name="MailList" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MailList" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollBarV" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("9_iiea4")]
+layout_mode = 2
+scroll_container = NodePath("../ScrollContainer")
 
 [node name="MailDetailsPanel" type="Panel" parent="Margin/HBox"]
 layout_mode = 2

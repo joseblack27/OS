@@ -12,7 +12,7 @@ class_name MissionsPanel
 @onready var btn_missions_pending: Button = $MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/FilterTabs/PendingMissionsButton
 @onready var mission_detail_panel = $MarginContainer/HBox/MissionDetailPanel
 
-@onready var missions_list: VBoxContainer = $MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/ScrollContainer/MissionsList
+@onready var missions_list: VBoxContainer = $MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/HBoxContainer/ScrollContainer/MissionsList
 
 #region Detalle
 @onready var title_label: Label = $MarginContainer/HBox/MissionDetailPanel/MarginContainer/DetailVBox/MissionTitle

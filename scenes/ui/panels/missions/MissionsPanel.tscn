@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxthynfs5udhq"]
+[gd_scene load_steps=6 format=3 uid="uid://bxthynfs5udhq"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_rp7j6"]
 [ext_resource type="Script" uid="uid://dcshss2mjuvn8" path="res://scenes/ui/panels/missions/MissionsPanel.gd" id="2_ofohn"]
 [ext_resource type="Resource" uid="uid://dyveda7lfpgmg" path="res://scripts/resources/missions/mision_1.tres" id="3_pf7ic"]
 [ext_resource type="Script" uid="uid://dkys83tplf2hs" path="res://scripts/resources/missions/MissionData.gd" id="3_whemo"]
+[ext_resource type="PackedScene" uid="uid://detnq67ilbdn4" path="res://scenes/ui/commons/scroll_bar_v/ScrollBarV.tscn" id="5_r2gc2"]
 
 [node name="MissionsPanel" type="Control"]
 layout_mode = 3
@@ -84,14 +85,24 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
 text = "Pendientes"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
-[node name="MissionsList" type="VBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="MissionsList" type="VBoxContainer" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollBarV" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("5_r2gc2")]
+layout_mode = 2
+scroll_container = NodePath("../ScrollContainer")
 
 [node name="MissionDetailPanel" type="Panel" parent="MarginContainer/HBox"]
 visible = false

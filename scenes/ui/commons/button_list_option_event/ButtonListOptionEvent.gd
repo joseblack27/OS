@@ -14,7 +14,8 @@ signal button_clicked(data_resource: EventData)
 @onready var subtitle_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/SubtitleLabel
 @onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/HBoxContainer2/TextureRect
 
-var resource: EventData
+@export var resource: EventData
+
 var _original_stylebox: StyleBoxFlat
 var _pressed_stylebox: StyleBoxFlat
 var presionado: bool = false

@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://devgqv2nmuytk"]
+[gd_scene load_steps=7 format=3 uid="uid://devgqv2nmuytk"]
 
 [ext_resource type="Theme" uid="uid://ddlr8menttf7k" path="res://themes/tema.tres" id="1_f6gqp"]
 [ext_resource type="Script" uid="uid://lrm5v7axa8vj" path="res://scenes/ui/panels/events/EventsPanel.gd" id="2_eq342"]
 [ext_resource type="PackedScene" uid="uid://djtu2vk7m0bg2" path="res://scenes/ui/commons/button_list_option_event/ButtonListOptionEvent.tscn" id="2_pvkjq"]
 [ext_resource type="Script" uid="uid://ciohilpdb5ge6" path="res://scenes/ui/panels/events/EventListPanel.gd" id="3_5x4ph"]
-[ext_resource type="Texture2D" uid="uid://wurdf1e5xja3" path="res://assets/icons/buttons/events/icono_eventos_importante.png" id="3_rcc8q"]
-[ext_resource type="Texture2D" uid="uid://duh5cs6a6snwd" path="res://assets/icons/buttons/events/icono_eventos_anomalia.png" id="5_v51lm"]
-[ext_resource type="Texture2D" uid="uid://dy5neh5lxmpy" path="res://assets/icons/buttons/events/icono_eventos_finalizado.png" id="7_8skt5"]
-[ext_resource type="Texture2D" uid="uid://bm1e5mxu33eet" path="res://assets/icons/buttons/events/icono_eventos_8.png" id="7_v51lm"]
 [ext_resource type="Script" uid="uid://6yiax1clf46m" path="res://scenes/ui/panels/events/EventDetailPanel.gd" id="9_63n6q"]
+[ext_resource type="PackedScene" uid="uid://detnq67ilbdn4" path="res://scenes/ui/commons/scroll_bar_v/ScrollBarV.tscn" id="9_ksqxk"]
 
 [node name="EventsPanel" type="Control"]
 layout_mode = 3
@@ -54,37 +51,22 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ButtonListOption" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_pvkjq")]
+[node name="ScrollBarV" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("9_ksqxk")]
 layout_mode = 2
-
-[node name="TextureRect" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-texture = ExtResource("3_rcc8q")
-
-[node name="ButtonListOption3" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_pvkjq")]
-layout_mode = 2
-
-[node name="TextureRect" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption3/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-texture = ExtResource("5_v51lm")
-
-[node name="ButtonListOption5" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_pvkjq")]
-layout_mode = 2
-
-[node name="TextureRect" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption5/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-texture = ExtResource("7_8skt5")
-
-[node name="ButtonListOption6" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_pvkjq")]
-layout_mode = 2
-
-[node name="TextureRect" parent="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption6/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
-texture = ExtResource("7_v51lm")
+scroll_container = NodePath("../ScrollContainer")
 
 [node name="EventDetailPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -160,8 +142,3 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Descripcion"
 fit_content = true
-
-[editable path="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption"]
-[editable path="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption3"]
-[editable path="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption5"]
-[editable path="MarginContainer/HBoxContainer/EventListPanel/MarginContainer/ScrollContainer/VBoxContainer/ButtonListOption6"]

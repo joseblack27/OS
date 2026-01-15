@@ -24,16 +24,16 @@ func _create_test_events():
 			e.title = "Jefe de Mundo - %d" % i
 			e.subtitle = "Coloso Carmesí"
 			e.description = "Una criatura ancestral ha despertado."
-			e.start_time = now + 5
-			e.end_time = now + 10
+			e.start_time = now + 5 + (i * 2)
+			e.end_time = now + 10 + (i * 2)
 			e.is_persistent = true
 		else:
 			e.id = "dungeon - %d" % i
 			e.title = "Mazmorra - %d" % i
 			e.subtitle = "Cripta Oscura"
 			e.description = "Una mazmorra peligrosa ha sido descubierta."
-			e.start_time = now - 5
-			e.end_time = now + 10
+			e.start_time = now - 5 + (i * 2)
+			e.end_time = now + 10 + (i * 2)
 			e.is_persistent = false
 
 		EventManager.add_event(e)
