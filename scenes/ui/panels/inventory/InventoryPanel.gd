@@ -47,20 +47,14 @@ class_name InventoryPanel
 @onready var equip_slot_belt: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBelt
 
 func _ready():
-	#_populate_grid()
-	#flow.resized.connect(_on_flow)
-	#flow.resized.connect(_update_spacing_3)
-	_populate_flow()
-	_clear_details()
-	#resized.connect(_update_spacing)
 	close_button.pressed.connect(_on_close_button)
 	action_button.pressed.connect(_on_action_button)
-	#_update_spacing()
+	
+	_populate_flow()
+	_clear_details()
 	_update_spacing_3()
-	#_on_flow()
 	set_active_filter_button(all_filter_button)
 	
-	#main_os.main_button_close.connect(_on_close_button)
 	var main_os = get_tree().get_root().find_child("MainOS", true, false)
 	if main_os:
 		main_os.main_button_close.connect(_on_close_button)
@@ -90,30 +84,6 @@ func _on_close_button():
 	detail_panel_margin.hide()
 	main_action_panel.hide()
 
-func _update_spacing_2():
-	var container_width: float = flow.size.x
-	print(container_width)
-	
-	var slot_w: float = slot_size.x
-	print(slot_w)
-	
-	var max_per_row: int = max(1, floor(container_width / slot_w))
-	print(max_per_row)
-	
-	var width_rest: int = int(container_width) % int(slot_w)
-	print(container_width, " % ", slot_w, " = ", width_rest)
-	
-	#var width_x_slot = max_per_row * slot_w # 384
-	if (max_per_row - 1) > 0:
-		@warning_ignore("integer_division")
-		var spacing: int = floori(width_rest / (max_per_row - 1)) # 8
-		print("espaciado: ", spacing)
-		
-		if spacing < min_spacing:
-			spacing = floori(width_rest + slot_w / (max_per_row - 1))
-		flow.add_theme_constant_override("h_separation", spacing)
-		flow.add_theme_constant_override("v_separation", spacing)
-
 func _update_spacing():
 	# 1. Tamaño real disponible del FlowContainer
 	var container_width: float = flow.size.x
@@ -138,6 +108,55 @@ func _update_spacing():
 	spacing = max(spacing, min_spacing)
 
 	# 7. Aplicar spacing
+	flow.add_theme_constant_override("h_separation", spacing)
+	flow.add_theme_constant_override("v_separation", spacing)
+
+func _update_spacing_2():
+	var container_width: float = flow.size.x
+	print(container_width)
+	
+	var slot_w: float = slot_size.x
+	print(slot_w)
+	
+	var max_per_row: int = max(1, floor(container_width / slot_w))
+	print(max_per_row)
+	
+	var width_rest: int = int(container_width) % int(slot_w)
+	print(container_width, " % ", slot_w, " = ", width_rest)
+	
+	#var width_x_slot = max_per_row * slot_w # 384
+	if (max_per_row - 1) > 0:
+		@warning_ignore("integer_division")
+		var spacing: int = floori(width_rest / (max_per_row - 1)) # 8
+		print("espaciado: ", spacing)
+		
+		if spacing < min_spacing:
+			spacing = floori(width_rest + slot_w / (max_per_row - 1))
+		flow.add_theme_constant_override("h_separation", spacing)
+		flow.add_theme_constant_override("v_separation", spacing)
+
+func _update_spacing_3():
+	var container_width := flow.size.x
+	if container_width <= 0:
+		return
+
+	var slot_w := slot_size.x
+
+	# cuántos caben por fila
+	var max_per_row = max(1, floori(container_width / (slot_w + min_spacing)))
+
+	# ancho usado por items
+	var used_width = max_per_row * slot_w
+
+	# espacio libre entre items
+	var free_space = container_width - used_width
+
+	# spacing ideal
+	var spacing := floori(free_space / (max_per_row + 1))
+
+	# límite para que no se desarme la grilla
+	spacing = clamp(spacing, min_spacing, 32)
+
 	flow.add_theme_constant_override("h_separation", spacing)
 	flow.add_theme_constant_override("v_separation", spacing)
 
@@ -186,34 +205,6 @@ func _update_details(item: ItemData):
 	use_action_button.visible = item.can_use
 	equip_action_button.visible = item.can_equip
 	drop_action_button.visible = item.can_drop
-
-func _on_flow():
-	_update_spacing_2()
-
-func _update_spacing_3():
-	var container_width := flow.size.x
-	if container_width <= 0:
-		return
-
-	var slot_w := slot_size.x
-
-	# cuántos caben por fila
-	var max_per_row = max(1, floori(container_width / (slot_w + min_spacing)))
-
-	# ancho usado por items
-	var used_width = max_per_row * slot_w
-
-	# espacio libre entre items
-	var free_space = container_width - used_width
-
-	# spacing ideal
-	var spacing := floori(free_space / (max_per_row + 1))
-
-	# límite para que no se desarme la grilla
-	spacing = clamp(spacing, min_spacing, 32)
-
-	flow.add_theme_constant_override("h_separation", spacing)
-	flow.add_theme_constant_override("v_separation", spacing)
 
 func _on_action_button():
 	main_action_panel.visible = !main_action_panel.visible
