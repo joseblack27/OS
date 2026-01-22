@@ -84,3 +84,16 @@ class Mission:
 			Mission.Type.EVENTO: return "Evento"
 			Mission.Type.DIARIA: return "Diaria"
 		return "-"
+
+class ColorUI:
+	enum UI {
+		GREEN_FLUORESCENT,
+		BACK_WHITE,
+		LINE_WHITE
+	}
+	
+	const color_ui_value := {
+		UI.GREEN_FLUORESCENT: "38ff14",
+		UI.BACK_WHITE: "f0f0f0",
+		UI.LINE_WHITE: "eaeaea10"
+	}

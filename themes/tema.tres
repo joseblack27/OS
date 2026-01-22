@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://ddlr8menttf7k"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://ddlr8menttf7k"]
 
 [ext_resource type="FontFile" uid="uid://53dduvrn2yrw" path="res://assets/fonts/jet brain mono/JetBrainsMono-Light.ttf" id="1_asgch"]
 
@@ -65,6 +65,24 @@ border_width_bottom = 1
 border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 corner_detail = 1
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju6hu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw1d5"]
+bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0)
+corner_detail = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gas1o"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
@@ -123,6 +141,8 @@ HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0wyfc")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8t0xh")
 HSeparator/styles/separator = SubResource("StyleBoxLine_asgch")
 Panel/styles/panel = SubResource("StyleBoxFlat_5ep6a")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ju6hu")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_gw1d5")
 TabContainer/colors/font_unselected_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
 TabContainer/font_sizes/font_size = 14
 TabContainer/styles/panel = SubResource("StyleBoxFlat_gas1o")
