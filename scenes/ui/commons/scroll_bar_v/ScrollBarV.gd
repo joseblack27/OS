@@ -31,3 +31,5 @@ func _sync_scrollbar_properties():
 	max_value = internal_v_bar.max_value
 	step = internal_v_bar.step
 	page = internal_v_bar.page # Esto define el tamaño del "grabber"
+	
+	visible = internal_v_bar.max_value > internal_v_bar.page

@@ -48,32 +48,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/MailListPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MailList" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/MailListPanel/MarginContainer/HBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_right = 2
 
-[node name="ScrollBarV" parent="Margin/HBox/MailListPanel/MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("9_iiea4")]
+[node name="MailList" type="VBoxContainer" parent="Margin/HBox/MailListPanel/MarginContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="ScrollBarV" parent="Margin/HBox/MailListPanel/MarginContainer/HBoxContainer" node_paths=PackedStringArray("scroll_container") instance=ExtResource("9_iiea4")]
 layout_mode = 2
 scroll_container = NodePath("../ScrollContainer")
 

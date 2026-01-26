@@ -2,7 +2,7 @@ extends Control
 
 @export var skills: Array[SkillData]
 
-@onready var skill_list_panel := $MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer
+@onready var skill_list_panel := $MarginContainer/HBoxContainer/SkillListPanel/MarginContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer
 @onready var detail_panel := $MarginContainer/HBoxContainer/DetailPanel
 @onready var group_button := ButtonGroup.new()
 

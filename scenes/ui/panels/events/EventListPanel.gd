@@ -3,7 +3,7 @@ class_name EventListPanel
 
 @export var event_button_scene: PackedScene
 
-@onready var list_container := $MarginContainer/HBoxContainer/ScrollContainer/VBoxContainer
+@onready var list_container := $MarginContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer
 @onready var group_button := ButtonGroup.new()
 
 var event_buttons := {}

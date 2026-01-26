@@ -35,7 +35,7 @@ movie_writer/movie_file="D:/Proyectos/Godot/OS/video/demo.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg")
+enabled=PackedStringArray("res://addons/git_bash_here/plugin.cfg", "res://addons/godot_ai/plugin.cfg")
 
 [rendering]
 

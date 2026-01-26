@@ -13,10 +13,11 @@ func _ready() -> void:
 
 
 func setup_status_panel() -> void:
-	var status_label := Label.new()
-	status_label.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	status_label.text = "Estado: Idle"
-	status_panel.add_child(status_label)
+	pass
+	#var status_label := Label.new()
+	#status_label.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	#status_label.text = "Estado: Idle"
+	#status_panel.add_child(status_label)
 
 
 func setup_stats_grid() -> void:
