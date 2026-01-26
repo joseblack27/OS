@@ -53,10 +53,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer"]
 layout_mode = 2
@@ -75,62 +71,74 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container"]
 layout_mode = 2
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
 layout_mode = 2
 text = "Carateristicas Principales"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Nombre:"
 
-[node name="NameLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Rikapolo"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Nivel:"
 
-[node name="LevelLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer3"]
+[node name="LevelLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Vida:"
 
-[node name="LifeLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer4"]
+[node name="LifeLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "100/100"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Energia:"
 
-[node name="EnergyLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/HBoxContainer2"]
+[node name="EnergyLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "100/100"
@@ -141,62 +149,73 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2"]
 layout_mode = 2
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
 layout_mode = 2
 text = "Carateristicas Secundarias"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Daños:"
 
-[node name="NameLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Defensa:"
 
-[node name="LevelLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer3"]
+[node name="LevelLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "20"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Estamina:"
 
-[node name="LifeLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer4"]
+[node name="LifeLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "50"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Potencia:"
 
-[node name="EnergyLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/HBoxContainer2"]
+[node name="EnergyLabel" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer/ScrollContainer/VBoxContainer/Container2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "20"
