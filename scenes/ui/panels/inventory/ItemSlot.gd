@@ -2,6 +2,7 @@ extends Control
 class_name ItemSlot
 
 signal slot_clicked(item_data)
+signal slot_dragging(status: bool, type_item: Enums.Inventory.TypeItem)
 
 @export var item_data: ItemData:
 	set(value):
@@ -10,12 +11,19 @@ signal slot_clicked(item_data)
 	get:
 		return item_data
 
+var is_dragging := false
+
 func _ready():
 	gui_input.connect(_on_gui_input)
 
 func _on_gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
-		slot_clicked.emit(item_data)
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+			is_dragging = false
+
+		elif event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+			if not is_dragging:
+				slot_clicked.emit(item_data)
 
 func update_item():
 	if item_data:
@@ -28,9 +36,14 @@ func update_item():
 		$QuantityLabel.visible = false
 
 func _get_drag_data(_at_position):
+
+	is_dragging = true
+
 	if not item_data \
 	or item_data.can_equip == false:
 		return null
+
+	slot_dragging.emit(true, item_data.type_equippable)
 
 	# Preview visual mientras se arrastra
 	var size_icon: Vector2 = Vector2(32,32)

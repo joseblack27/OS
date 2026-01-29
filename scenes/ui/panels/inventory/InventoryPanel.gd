@@ -46,6 +46,8 @@ class_name InventoryPanel
 @onready var equip_slot_boots: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBoots
 @onready var equip_slot_belt: EquipoSlot = $Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBelt
 
+@export var slots_equippable: Array[EquipoSlot]
+
 func _ready():
 	close_button.pressed.connect(_on_close_button)
 	action_button.pressed.connect(_on_action_button)
@@ -67,6 +69,7 @@ func _populate_flow():
 		var slot: ItemSlot = slot_scene.instantiate()
 		slot.item_data = data
 		slot.slot_clicked.connect(_on_slot_clicked)
+		slot.slot_dragging.connect(_show_color_slot_compatible)
 		flow.add_child(slot)
 	
 	equip_slot_weapon.slot_clicked.connect(_on_slot_clicked)
@@ -223,3 +226,17 @@ func set_active_filter_button(button: Button):
 	# Activo solo el correcto
 	button.button_pressed = true
 	button.disabled = true
+
+func _on_slot_dragging(status: bool, type_equippable: Enums.Inventory.TypeItemEquippable):
+	_show_color_slot_compatible(status, type_equippable)
+
+func _show_color_slot_compatible(status: bool, type_equippable: Enums.Inventory.TypeItemEquippable):
+	if status == true:
+		for equippable: EquipoSlot in slots_equippable:
+			if equippable:
+				var valido = equippable.type_equippable == type_equippable
+				equippable.modulate = Color(0,1,0,1) if valido else Color(1,0,0,1)
+	else:
+		for equippable: EquipoSlot in slots_equippable:
+			if equippable:
+				equippable.modulate = Color(1,1,1,1)

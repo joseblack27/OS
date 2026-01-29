@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://b40ww05yttmik" path="res://assets/icons/slots/slot_3.png" id="30_dmwk7"]
 [ext_resource type="Texture2D" uid="uid://ddyia4fu53xg2" path="res://assets/icons/slots/slot_6.png" id="31_3wc4y"]
 
-[node name="InventoryPanel" type="Control"]
+[node name="InventoryPanel" type="Control" node_paths=PackedStringArray("slots_equippable")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +53,7 @@ theme = ExtResource("1_tikhs")
 script = ExtResource("2_js0jc")
 slot_scene = ExtResource("3_cdap4")
 items = Array[ExtResource("4_2dtve")]([ExtResource("6_kk5td"), ExtResource("6_a406a"), ExtResource("7_tf88s"), ExtResource("8_c47ir"), ExtResource("7_lyq21"), ExtResource("8_qtex0"), ExtResource("11_ytosb"), ExtResource("9_oe81b"), ExtResource("10_gejl0"), ExtResource("11_50os3"), ExtResource("13_tf88s"), ExtResource("16_g2q0i"), ExtResource("17_x6y5c"), ExtResource("18_4f4rx"), ExtResource("19_1tche"), ExtResource("20_7e6tm"), ExtResource("21_kuybn"), ExtResource("22_dmwk7"), ExtResource("23_3wc4y"), ExtResource("24_kuybn"), ExtResource("25_efoq6"), ExtResource("26_opke1"), ExtResource("27_mfiu4"), ExtResource("28_846rq"), ExtResource("25_efoq6"), ExtResource("26_opke1"), ExtResource("27_mfiu4"), ExtResource("23_3wc4y"), ExtResource("20_7e6tm"), ExtResource("28_846rq"), ExtResource("21_kuybn"), ExtResource("24_kuybn"), ExtResource("19_1tche"), ExtResource("22_dmwk7")])
+slots_equippable = [NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1/EquipSlotWeapon"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer1/EquipSlotShield"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2/EquipSlotHelmet"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer2/EquipSlotNeck"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3/EquipSlotBody"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer3/EquipSlotRing1"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4/EquipSlotPant"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer4/EquipSlotRing2"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBoots"), NodePath("Margin/HBox/Control/EquipmentPanel/MarginContainer/EquipmentVBox/HBoxContainer5/EquipSlotBelt")]
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1

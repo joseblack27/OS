@@ -7,6 +7,7 @@ class_name FlowItems
 @export var spacing: int = 8
 
 var slot_scene: PackedScene = preload("res://scenes/ui/panels/inventory/ItemSlot.tscn")
+var last_filter_type: Enums.Inventory.TypeItem = Enums.Inventory.TypeItem.ALL
 
 func _ready():
 	resized.connect(_update_layout)
@@ -31,6 +32,7 @@ func _update_layout():
 			child.custom_minimum_size = Vector2(cell_size, cell_size)
 
 func filter_items(filter_type: Enums.Inventory.TypeItem):
+	last_filter_type = filter_type
 	for item: ItemSlot in get_children():
 		if filter_type == Enums.Inventory.TypeItem.ALL:
 			item.visible = true
@@ -46,6 +48,9 @@ func _drop_data(_at_position, data):
 	var slot: ItemSlot = slot_scene.instantiate()
 	slot.item_data = item_slot.item_data
 	slot.slot_clicked.connect(owner._on_slot_clicked)
-	slot.custom_minimum_size = Vector2(56,56)
+	slot.slot_dragging.connect(owner._on_slot_dragging)
+	slot.custom_minimum_size = Vector2(53,53)
 	add_child(slot)
 	item_slot.item_data = null
+	
+	filter_items(last_filter_type)
