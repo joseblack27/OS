@@ -80,60 +80,25 @@ func _load_items_flow():
 	equip_slot_boots.slot_clicked.connect(_on_slot_clicked)
 	equip_slot_belt.slot_clicked.connect(_on_slot_clicked)
 
+#region Botones
+
+func _on_slot_clicked(item_data: ItemSlot):
+	if item_data:
+		_update_details(item_data)
+		main_action_panel.hide()
+		detail_panel_margin.show()
+
 func _on_close_button():
 	detail_panel_margin.hide()
 	main_action_panel.hide()
 
-func _update_spacing():
-	# 1. Tamaño real disponible del FlowContainer
-	var container_width: float = flow.size.x
+func _on_action_button():
+	main_action_panel.visible = !main_action_panel.visible
 
+func _on_equip_button():
+	_equip_item(item_data_details)
 
-	# 2. Obtener el tamaño REAL del slot (min size)
-	var sample_slot := slot_scene.instantiate()
-	var slot_w: float = sample_slot.get_combined_minimum_size().x
-	sample_slot.queue_free()
-
-	# 3. Cálculo de cuántos caben
-	var max_per_row: int = max(1, floor(container_width / (slot_w + min_spacing)))
-
-	# 4. Calcular espacio restante
-	var used_width: float = max_per_row * slot_w
-	var free_space: float = container_width - used_width
-
-	# 5. Calcular spacing ideal
-	var spacing: int = floori(free_space / (max_per_row + 1))
-
-	# 6. Limitar spacing
-	spacing = max(spacing, min_spacing)
-
-	# 7. Aplicar spacing
-	flow.add_theme_constant_override("h_separation", spacing)
-	flow.add_theme_constant_override("v_separation", spacing)
-
-func _update_spacing_2():
-	var container_width: float = flow.size.x
-	print(container_width)
-	
-	var slot_w: float = slot_size.x
-	print(slot_w)
-	
-	var max_per_row: int = max(1, floor(container_width / slot_w))
-	print(max_per_row)
-	
-	var width_rest: int = int(container_width) % int(slot_w)
-	print(container_width, " % ", slot_w, " = ", width_rest)
-	
-	#var width_x_slot = max_per_row * slot_w # 384
-	if (max_per_row - 1) > 0:
-		@warning_ignore("integer_division")
-		var spacing: int = floori(width_rest / (max_per_row - 1)) # 8
-		print("espaciado: ", spacing)
-		
-		if spacing < min_spacing:
-			spacing = floori(width_rest + slot_w / (max_per_row - 1))
-		flow.add_theme_constant_override("h_separation", spacing)
-		flow.add_theme_constant_override("v_separation", spacing)
+#endregion
 
 func _update_spacing_3():
 	var container_width := flow.size.x
@@ -164,22 +129,12 @@ func _clear_grid(_grid):
 	for child in _grid.get_children():
 		child.queue_free()
 
-func _on_slot_clicked(item_data: ItemSlot):
-	if item_data:
-		_update_details(item_data)
-		main_action_panel.hide()
-		detail_panel_margin.show()
-
 func _clear_details():
 	item_name.text = "No item"
 	item_icon.texture = null
 	type_value.text = "-"
 	qty_value.text = "-"
 	description_text.text = ""
-	
-	#use_button.disabled = true
-	#equip_button.disabled = true
-	#drop_button.disabled = true
 	
 	use_action_button.disabled = true
 	equip_action_button.disabled = true
@@ -201,12 +156,6 @@ func _update_details(item: ItemSlot):
 	use_action_button.visible = item.can_use
 	equip_action_button.visible = item.can_equip
 	drop_action_button.visible = item.can_drop
-
-func _on_action_button():
-	main_action_panel.visible = !main_action_panel.visible
-
-func _on_equip_button():
-	_equip_item(item_data_details)
 
 func set_active_filter_button(button: Button):
 	# Primero desactivo todos
