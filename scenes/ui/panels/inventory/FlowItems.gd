@@ -2,7 +2,7 @@ extends FlowContainer
 class_name FlowItems
 
 # Tamaño mínimo deseado para cada slot
-@export var min_item_size: int = 50
+@export var min_item_size: int = 48
 # Espaciado entre elementos (coincidir con Separation)
 @export var spacing: int = 8
 
@@ -45,12 +45,17 @@ func _can_drop_data(_at_position, data):
 func _drop_data(_at_position, data):
 	var item_slot = data
 	
-	var slot: ItemSlot = slot_scene.instantiate()
-	slot.item_data = item_slot.item_data
-	slot.slot_clicked.connect(owner._on_slot_clicked)
-	slot.slot_dragging.connect(owner._on_slot_dragging)
-	slot.custom_minimum_size = Vector2(53,53)
-	add_child(slot)
+	_add_item(item_slot.item_data)
+	
 	item_slot.item_data = null
 	
 	filter_items(last_filter_type)
+
+func _add_item(item_data: ItemData):
+	var slot: ItemSlot = slot_scene.instantiate()
+	slot.item_data = item_data
+	slot.slot_clicked.connect(owner._on_slot_clicked)
+	slot.slot_dragging.connect(owner._on_slot_dragging)
+	add_child(slot)
+	
+	_update_layout()

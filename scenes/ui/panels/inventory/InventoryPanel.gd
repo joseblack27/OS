@@ -3,10 +3,9 @@ class_name InventoryPanel
 
 @export var slot_scene: PackedScene          # ItemSlot.tscn
 @export var items: Array[ItemData] = []      # Lista de items del jugador
-@export var slot_size := Vector2(53, 53)     # tamaño del slot
+@export var slot_size := Vector2(48, 48)     # tamaño del slot
 @export var min_spacing := 4                 # mínimo espacio permitido
 
-@onready var grid: GridContainer = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/GridContainer
 @onready var flow: FlowItems = $Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/MarginContainer/ScrollContainer/FlowItems
 
 # Panel de detalle
@@ -52,7 +51,7 @@ func _ready():
 	close_button.pressed.connect(_on_close_button)
 	action_button.pressed.connect(_on_action_button)
 	
-	_populate_flow()
+	_load_items_flow()
 	_clear_details()
 	_update_spacing_3()
 	set_active_filter_button(all_filter_button)
@@ -61,16 +60,11 @@ func _ready():
 	if main_os:
 		main_os.main_button_close.connect(_on_close_button)
 
-func _populate_flow():
-	for child in grid.get_children():
-		child.queue_free()
+func _load_items_flow():
+	_clear_grid(flow)
 
-	for data in items:
-		var slot: ItemSlot = slot_scene.instantiate()
-		slot.item_data = data
-		slot.slot_clicked.connect(_on_slot_clicked)
-		slot.slot_dragging.connect(_show_color_slot_compatible)
-		flow.add_child(slot)
+	for data: ItemData in items:
+		flow._add_item(data)
 	
 	equip_slot_weapon.slot_clicked.connect(_on_slot_clicked)
 	equip_slot_shield.slot_clicked.connect(_on_slot_clicked)
@@ -162,15 +156,6 @@ func _update_spacing_3():
 
 	flow.add_theme_constant_override("h_separation", spacing)
 	flow.add_theme_constant_override("v_separation", spacing)
-
-func _populate_grid():
-	_clear_grid(grid)
-
-	for data in items:
-		var slot := slot_scene.instantiate()
-		slot.item_data = data
-		slot.slot_clicked.connect(_on_slot_clicked)
-		grid.add_child(slot)
 
 func _clear_grid(_grid):
 	for child in _grid.get_children():

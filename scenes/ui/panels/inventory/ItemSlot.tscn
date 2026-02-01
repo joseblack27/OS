@@ -4,16 +4,17 @@
 [ext_resource type="Script" uid="uid://drwvp0ia55xv2" path="res://scenes/ui/panels/inventory/ItemSlot.gd" id="2_abx46"]
 
 [node name="ItemSlot" type="Control"]
+clip_contents = true
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_right = 48.0
+offset_bottom = 48.0
 theme = ExtResource("1_wfw4u")
 script = ExtResource("2_abx46")
 
 [node name="Background" type="Panel" parent="."]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +38,7 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="QuantityLabel" type="Label" parent="."]
 layout_mode = 1
