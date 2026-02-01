@@ -412,31 +412,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "Acción"
 
-[node name="ButtonBar" type="HBoxContainer" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox"]
-visible = false
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 2
-
-[node name="UseButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Usar"
-
-[node name="EquipButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Equipar"
-
-[node name="DropButton" type="Button" parent="Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Soltar"
-
 [node name="CloseButton" type="Button" parent="Margin/HBox/Control/DetailPanel"]
 custom_minimum_size = Vector2(26, 26)
 layout_mode = 1

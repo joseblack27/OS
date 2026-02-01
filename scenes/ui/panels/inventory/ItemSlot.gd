@@ -8,8 +8,16 @@ signal slot_dragging(status: bool, type_item: Enums.Inventory.TypeItem)
 	set(value):
 		item_data = value
 		update_item()
+		if value:
+			can_use = item_data.can_use
+			can_equip = item_data.can_equip
+			can_drop = item_data.can_drop
 	get:
 		return item_data
+
+@export var can_use: bool = false
+@export var can_equip: bool = false
+@export var can_drop: bool = true
 
 var is_dragging := false
 
@@ -23,7 +31,7 @@ func _on_gui_input(event: InputEvent):
 
 		elif event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
 			if not is_dragging:
-				slot_clicked.emit(item_data)
+				slot_clicked.emit(self)
 
 func update_item():
 	if item_data:

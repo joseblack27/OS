@@ -17,9 +17,9 @@ class_name InventoryPanel
 @onready var close_button := $Margin/HBox/Control/DetailPanel/CloseButton
 @onready var detail_panel_margin := $Margin/HBox/Control/DetailPanel
 
-@onready var use_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
-@onready var equip_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
-@onready var drop_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
+#@onready var use_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
+#@onready var equip_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
+#@onready var drop_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
 @onready var action_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ActionButton
 
 @onready var main_action_panel: PanelContainer = $Margin/HBox/Control/DetailPanel/MainActionPanel
@@ -47,9 +47,12 @@ class_name InventoryPanel
 
 @export var slots_equippable: Array[EquipoSlot]
 
+var item_data_details: ItemSlot
+
 func _ready():
 	close_button.pressed.connect(_on_close_button)
 	action_button.pressed.connect(_on_action_button)
+	equip_action_button.pressed.connect(_on_equip_button)
 	
 	_load_items_flow()
 	_clear_details()
@@ -161,7 +164,7 @@ func _clear_grid(_grid):
 	for child in _grid.get_children():
 		child.queue_free()
 
-func _on_slot_clicked(item_data: ItemData):
+func _on_slot_clicked(item_data: ItemSlot):
 	if item_data:
 		_update_details(item_data)
 		main_action_panel.hide()
@@ -174,21 +177,26 @@ func _clear_details():
 	qty_value.text = "-"
 	description_text.text = ""
 	
-	use_button.disabled = true
-	equip_button.disabled = true
-	drop_button.disabled = true
+	#use_button.disabled = true
+	#equip_button.disabled = true
+	#drop_button.disabled = true
+	
+	use_action_button.disabled = true
+	equip_action_button.disabled = true
+	drop_action_button.disabled = true
 
-func _update_details(item: ItemData):
-	item_name.text = item.name
-	item_icon.texture = item.icon
-	type_value.text = item.type_descripcion
-	qty_value.text = str(item.quantity)
-	description_text.text = item.description
+func _update_details(item: ItemSlot):
+	item_data_details = item
+	item_name.text = item.item_data.name
+	item_icon.texture = item.item_data.icon
+	type_value.text = item.item_data.type_descripcion
+	qty_value.text = str(item.item_data.quantity)
+	description_text.text = item.item_data.description
 
 	# Habilitar según tipo
-	use_button.disabled = not item.can_use
-	equip_button.disabled = not item.can_equip
-	drop_button.disabled = not item.can_drop
+	use_action_button.disabled = not item.can_use
+	equip_action_button.disabled = not item.can_equip
+	drop_action_button.disabled = not item.can_drop
 	
 	use_action_button.visible = item.can_use
 	equip_action_button.visible = item.can_equip
@@ -196,6 +204,9 @@ func _update_details(item: ItemData):
 
 func _on_action_button():
 	main_action_panel.visible = !main_action_panel.visible
+
+func _on_equip_button():
+	_equip_item(item_data_details)
 
 func set_active_filter_button(button: Button):
 	# Primero desactivo todos
@@ -225,3 +236,73 @@ func _show_color_slot_compatible(status: bool, type_equippable: Enums.Inventory.
 		for equippable: EquipoSlot in slots_equippable:
 			if equippable:
 				equippable.modulate = Color(1,1,1,1)
+
+func _equip_item(item_equip: ItemSlot):
+	
+	var target_slot: ItemSlot = null
+	
+	if item_equip.item_data.type_equippable == Enums.Inventory.TypeItemEquippable.RING:
+		if equip_slot_ring_1.item_data != null and equip_slot_ring_2.item_data != null:
+			target_slot = equip_slot_ring_1
+		elif equip_slot_ring_1.item_data != null:
+			target_slot = equip_slot_ring_2
+		else:
+			target_slot = equip_slot_ring_1
+	else:
+		for item: EquipoSlot in slots_equippable:
+			if item.type_equippable == item_equip.item_data.type_equippable:
+				target_slot = item
+	
+	if target_slot == null:
+		return
+	
+	if target_slot.item_data != null:
+		var old_item = target_slot.item_data
+		target_slot.item_data = item_equip.item_data
+		target_slot.can_equip = false
+		item_equip.item_data = old_item
+		item_equip.can_equip = true
+	else:
+		target_slot.item_data = item_equip.item_data
+		target_slot.can_equip = false
+		item_equip.call_deferred("queue_free")
+	
+	_on_close_button()
+
+#func _equip_item(item_equip: ItemSlot):
+	#var target_slot: ItemSlot = null
+	#var item_type := item_equip.item_data.type_equippable
+#
+	## 🔵 CASO ESPECIAL: RING
+	#if item_type == Enums.Inventory.TypeItemEquippable.RING:
+		#if equip_slot_ring_1.item_data != null and equip_slot_ring_2.item_data != null:
+			## Ambos ocupados → reemplaza el primero
+			#target_slot = equip_slot_ring_1
+		#elif equip_slot_ring_1.item_data != null:
+			## Solo el primero ocupado → usa el segundo
+			#target_slot = equip_slot_ring_2
+		#else:
+			## El primero está libre
+			#target_slot = equip_slot_ring_1
+#
+	## 🔵 OTROS TIPOS DE EQUIPAMIENTO
+	#else:
+		#for slot: EquipoSlot in slots_equippable:
+			#if slot.type_equippable == item_type:
+				#target_slot = slot
+				#break
+#
+	## 🔒 Seguridad
+	#if target_slot == null:
+		#return
+#
+	## 🔁 EQUIPAR / INTERCAMBIAR
+	#if target_slot.item_data != null:
+		#var old_item = target_slot.item_data
+		#target_slot.item_data = item_equip.item_data
+		#item_equip.item_data = old_item
+	#else:
+		#target_slot.item_data = item_equip.item_data
+		#item_equip.call_deferred("queue_free")
+#
+	#_on_close_button()

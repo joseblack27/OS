@@ -23,8 +23,6 @@ func _can_drop_data(_position, data) -> bool:
 		return false
 	
 	var valido = data.item_data.type_equippable == type_equippable
-	#modulate = Color(0,1,0,1) if valido else Color(1,0,0,1)
-	
 	return valido
 
 func _drop_data(_position, data):
