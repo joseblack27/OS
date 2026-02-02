@@ -17,9 +17,6 @@ class_name InventoryPanel
 @onready var close_button := $Margin/HBox/Control/DetailPanel/CloseButton
 @onready var detail_panel_margin := $Margin/HBox/Control/DetailPanel
 
-#@onready var use_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/UseButton
-#@onready var equip_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/EquipButton
-#@onready var drop_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ButtonBar/DropButton
 @onready var action_button := $Margin/HBox/Control/DetailPanel/MarginContainer/DetailVBox/ActionButton
 
 @onready var main_action_panel: PanelContainer = $Margin/HBox/Control/DetailPanel/MainActionPanel
@@ -56,7 +53,7 @@ func _ready():
 	
 	_load_items_flow()
 	_clear_details()
-	_update_spacing_3()
+	#_update_spacing()
 	set_active_filter_button(all_filter_button)
 	
 	var main_os = get_tree().get_root().find_child("MainOS", true, false)
@@ -100,7 +97,7 @@ func _on_equip_button():
 
 #endregion
 
-func _update_spacing_3():
+func _update_spacing():
 	var container_width := flow.size.x
 	if container_width <= 0:
 		return

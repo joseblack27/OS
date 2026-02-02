@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=21 format=3 uid="uid://ddlr8menttf7k"]
 
-[ext_resource type="FontFile" uid="uid://53dduvrn2yrw" path="res://assets/fonts/jet brain mono/JetBrainsMono-Light.ttf" id="1_asgch"]
+[ext_resource type="FontFile" uid="uid://bi6rked6dteq2" path="res://assets/fonts/jet brain/JetBrainsMono-VariableFont_wght.ttf" id="1_asgch"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7klen"]
 bg_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
@@ -130,7 +130,6 @@ default_font_size = 12
 Button/colors/font_disabled_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/fonts/font = ExtResource("1_asgch")
 Button/styles/disabled = SubResource("StyleBoxFlat_7klen")
 Button/styles/focus = SubResource("StyleBoxFlat_808xn")
 Button/styles/hover = SubResource("StyleBoxFlat_r66f0")

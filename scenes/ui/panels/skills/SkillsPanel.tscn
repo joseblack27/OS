@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0mcs0")
 script = ExtResource("2_f1m4p")
-skills = Array[ExtResource("3_2yhil")]([ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6"), ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6")])
+skills = Array[ExtResource("3_2yhil")]([ExtResource("4_ldkid"), ExtResource("5_ldkid"), ExtResource("6_mhbd6")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

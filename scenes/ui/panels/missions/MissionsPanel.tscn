@@ -53,6 +53,7 @@ theme_override_constants/margin_bottom = 3
 layout_mode = 2
 
 [node name="SearchBar" type="LineEdit" parent="MarginContainer/HBox/MissionsListPanel/MarginContainer/MissionsListVBox"]
+visible = false
 layout_mode = 2
 placeholder_text = "Buscar..."
 

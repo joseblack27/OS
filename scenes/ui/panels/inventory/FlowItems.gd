@@ -1,9 +1,7 @@
 extends FlowContainer
 class_name FlowItems
 
-# Tamaño mínimo deseado para cada slot
 @export var min_item_size: int = 48
-# Espaciado entre elementos (coincidir con Separation)
 @export var spacing: int = 8
 
 var slot_scene: PackedScene = preload("res://scenes/ui/panels/inventory/ItemSlot.tscn")
