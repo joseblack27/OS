@@ -76,6 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/ItemsPanel"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,12 +86,7 @@ grow_vertical = 2
 
 [node name="ItemsVBox" type="VBoxContainer" parent="Margin/HBox/ItemsPanel/MarginContainer"]
 layout_mode = 2
-
-[node name="Title" type="Label" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Inventario"
+theme_override_constants/separation = -1
 
 [node name="FilterTabs" type="HBoxContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
 custom_minimum_size = Vector2(0, 26)
@@ -133,17 +129,16 @@ script = ExtResource("19_tf88s")
 filter_type = 4
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
-[node name="GridContainer" type="GridContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
-visible = false
+[node name="HSeparator" type="HSeparator" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
 layout_mode = 2
-size_flags_vertical = 3
-columns = 5
+size_flags_vertical = 0
+theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
