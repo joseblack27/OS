@@ -94,7 +94,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="AllButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Todos"
@@ -103,7 +103,7 @@ filter_type = 1
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="EquipmentsButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Equipos"
@@ -112,7 +112,7 @@ filter_type = 3
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="ConsumablesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Consumibles"
@@ -121,7 +121,7 @@ filter_type = 2
 flow_items = NodePath("../../MarginContainer/ScrollContainer/FlowItems")
 
 [node name="ResourcesButton" type="Button" parent="Margin/HBox/ItemsPanel/MarginContainer/ItemsVBox/FilterTabs" node_paths=PackedStringArray("flow_items")]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Recursos"

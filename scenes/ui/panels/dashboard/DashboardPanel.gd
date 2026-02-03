@@ -21,17 +21,18 @@ func setup_status_panel() -> void:
 
 
 func setup_stats_grid() -> void:
-	stats_grid.columns = 2
-	for stat_name in ["Vida", "Energía", "Velocidad", "Conciencia"]:
-		var label = Label.new()
-		label.size_flags_horizontal = Control.SIZE_EXPAND
-		label.text = stat_name + ":"
-		stats_grid.add_child(label)
-
-		var value = Label.new()
-		value.size_flags_horizontal = Control.SIZE_EXPAND
-		value.text = "0"
-		stats_grid.add_child(value)
+	pass
+	#stats_grid.columns = 2
+	#for stat_name in ["Vida", "Energía", "Velocidad", "Conciencia"]:
+		#var label = Label.new()
+		#label.size_flags_horizontal = Control.SIZE_EXPAND
+		#label.text = stat_name + ":"
+		#stats_grid.add_child(label)
+#
+		#var value = Label.new()
+		#value.size_flags_horizontal = Control.SIZE_EXPAND
+		#value.text = "0"
+		#stats_grid.add_child(value)
 
 
 func setup_recent_activity() -> void:
