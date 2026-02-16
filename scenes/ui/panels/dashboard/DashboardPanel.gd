@@ -3,7 +3,7 @@ class_name DashboardPanel
 
 @onready var title_label := $VBoxContainer/TitleLabel
 @onready var status_panel := $VBoxContainer/MarginContainer/HBoxContainer/StatusPanel/MarginContainer
-@onready var stats_grid := $VBoxContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/StatsGrid
+#@onready var stats_grid := $VBoxContainer/MarginContainer/HBoxContainer/Panel/MarginContainer/StatsGrid
 @onready var recent_activity := $VBoxContainer/MarginContainer/HBoxContainer/RecentActivityPanel/MarginContainer
 
 func _ready() -> void:
